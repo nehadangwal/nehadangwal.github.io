@@ -1,186 +1,643 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Neha Dangwal – Senior Technical Product Leader</title>
-  <meta name="description" content="Neha Dangwal – Technical Product Leader, AI & Developer Platforms. Portfolio focused on product strategy, measurable outcomes, and cross-functional leadership." />
-  <style>
-    :root{--accent:#1e3a8a;--accent-2:#059669;--muted:#6b7280;--bg:#f8fafc;--card:#fff}
-    html,body{margin:0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif;background:var(--bg);color:#0f172a;line-height:1.6}
-    .wrap{max-width:980px;margin:40px auto;padding:24px}
-    header{background:linear-gradient(90deg,var(--accent),#3b82f6);color:#fff;padding:28px;border-radius:12px}
-    .brand{font-size:1.35rem;font-weight:700}
-    .byline{margin-top:6px;opacity:.95}
-    .metrics{display:flex;gap:12px;margin-top:18px;flex-wrap:wrap}
-    .metric{background:rgba(255,255,255,0.08);padding:12px 16px;border-radius:10px}
-    main{margin-top:20px}
-    section{margin-top:20px}
-    h2{color:var(--accent);margin-bottom:12px}
-    h3{color:#0f172a;margin-bottom:8px;font-size:1.1rem}
-    .card{background:var(--card);padding:20px;border-radius:10px;box-shadow:0 6px 20px rgba(8,15,30,0.06);margin-bottom:16px}
-    ul{margin-left:1.1rem;margin-top:8px}
-    .lead{font-size:.98rem;color:#0b1220}
-    footer{margin-top:28px;text-align:center;color:var(--muted);font-size:.9rem}
-    .pill{display:inline-block;background:#eef2ff;color:var(--accent);padding:5px 8px;border-radius:999px;font-size:.85rem}
-    .small{font-size:.9rem;color:var(--muted)}
-    .kpi{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px}
-    .kpi .item{background:#f1f5f9;padding:10px;border-radius:8px;color:#0f172a;font-size:.9rem}
-    .tech{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
-    .tech .t{background:#f8fafc;padding:6px 8px;border-radius:6px;border:1px solid #eef2ff;color:#04233b;font-size:.85rem}
-    .tradeoff{background:#fef3c7;border-left:3px solid #f59e0b;padding:12px;margin-top:12px;border-radius:6px;font-size:.92rem}
-    .tradeoff strong{color:#92400e}
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neha Dangwal | Technical Product Leader</title>
+    <!-- Chosen Palette: Warm Neutral (Beige/Cream) with Deep Blue/Teal accents -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap');
+        
+        .page-section {
+            display: none;
+        }
+        .page-section.active {
+            display: block;
+        }
+        .nav-link {
+            transition: all 0.3s ease;
+        }
+        .nav-link.active {
+            background-color: #e0f2fe; /* light-blue-100 */
+            color: #0c4a6e; /* sky-900 */
+            font-weight: 600;
+        }
+        .nav-link:hover {
+            background-color: #f0f9ff; /* sky-50 */
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 40vh;
+            max-height: 450px;
+        }
+        .stat-card {
+            background-color: #f0f9ff; /* sky-50 */
+            border-left: 5px solid #0369a1; /* sky-700 */
+            transition: all 0.3s ease;
+        }
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.03);
+        }
+        .skill-item.highlight {
+            background-color: #fef9c3; /* yellow-100 */
+            color: #713f12; /* yellow-900 */
+        }
+        .project-tab {
+            cursor: pointer;
+            transition: all 0.3s ease;
+            white-space: nowrap; /* Prevent tab titles from wrapping */
+        }
+        .project-tab.active {
+            border-bottom-color: #0369a1; /* sky-700 */
+            color: #0369a1; /* sky-700 */
+            font-weight: 600;
+        }
+        .project-tab-content {
+            display: none;
+        }
+        .project-tab-content.active {
+            display: block;
+        }
+
+        /* Custom Architecture Diagram Styling */
+        .arch-diagram-flow {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            background-color: #f8fafc; /* slate-50 */
+            gap: 1.5rem;
+        }
+        @media (min-width: 768px) {
+            .arch-diagram-flow {
+                flex-direction: row;
+                justify-content: space-between;
+            }
+        }
+        .arch-step {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            width: 100%;
+            max-width: 250px;
+        }
+        .arch-box-node {
+            padding: 1rem 1.5rem;
+            border: 2px solid #e2e8f0; 
+            border-radius: 0.375rem;
+            background-color: #ffffff;
+            font-weight: 500;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+        .arch-arrow {
+            font-size: 1.5rem;
+            color: #64748b; 
+            font-weight: bold;
+            margin: 0.5rem 0;
+            transform: rotate(90deg); /* Default for mobile/column flow */
+        }
+        @media (min-width: 768px) {
+            .arch-arrow {
+                margin: 0 1rem;
+                transform: rotate(0deg); /* Horizontal for desktop/row flow */
+            }
+            .arch-diagram-flow > .arch-arrow {
+                transform: rotate(0deg);
+            }
+            .arch-step {
+                width: auto;
+            }
+        }
+    </style>
 </head>
-<body>
-  <div class="wrap">
-    <header>
-      <div class="brand">Neha Dangwal – Senior Technical Product Leader</div>
-      <div class="byline">AI & Developer Platforms • Product strategy, platform adoption, and measurable developer productivity</div>
-      <div class="metrics">
-        <div class="metric"><strong>$17M+</strong> annual value delivered</div>
-        <div class="metric"><strong>250+</strong> engineers served</div>
-        <div class="metric"><strong>30%</strong> CI failure reduction</div>
-        <div class="metric"><strong>85%+</strong> platform satisfaction</div>
-      </div>
-    </header>
+<body class="bg-gray-50 text-gray-800">
 
-    <main>
-      <section class="card">
-        <h2>Executive Summary</h2>
-        <p class="lead">Technical Product Leader with 9+ years building developer platforms and AI-enabled tooling. Expert in product strategy, user research, and driving measurable outcomes through platform adoption and engineering productivity improvements.</p>
-        <p class="small">Core expertise: platform strategy, AI/ML productization, developer experience, measurement & analytics, cross-functional leadership, prioritization frameworks.</p>
-      </section>
+    <div class="flex flex-col md:flex-row min-h-screen">
+        <!-- Sidebar Navigation -->
+        <aside class="w-full md:w-64 lg:w-72 bg-white shadow-lg md:sticky md:top-0 md:h-screen p-6 z-10">
+            <div class="flex flex-col h-full">
+                <!-- Header -->
+                <div class="text-center md:text-left mb-8">
+                    <h1 class="text-3xl font-bold text-sky-900">Neha Dangwal</h1>
+                    <p class="text-lg text-sky-700">Senior Technical Product Leader</p>
+                    <p class="text-sm text-gray-500">AI & Developer Platforms</p>
+                </div>
 
-      <section id="timeline">
-        <h2>Career Progression</h2>
-        <div class="card">
-          <div style="display:flex;flex-direction:column;gap:14px">
-            <div>
-              <div style="font-weight:700">Senior Technical Product Leader – Cisco Systems (2021–2024)</div>
-              <ul>
-                <li>Led platform strategy for developer ecosystem serving 250+ engineers across 80+ microservices.</li>
-                <li>Delivered $15.4M+ annual productivity gains through automation and platform improvements.</li>
-                <li>Reduced build/test cycles by 30% and cut CI failures by 16+ per day.</li>
-                <li>Owned product roadmap, prioritization, and adoption strategy across 8 engineering teams.</li>
-              </ul>
+                <!-- Navigation -->
+                <nav class="flex-grow space-y-2" id="main-nav">
+                    <a href="#" class="nav-link active flex items-center space-x-3 p-3 rounded-lg" data-page="home">
+                        <span class="w-6 h-6">🏠</span>
+                        <span>Home & Summary</span>
+                    </a>
+                    <a href="#" class="nav-link flex items-center space-x-3 p-3 rounded-lg" data-page="career">
+                        <span class="w-6 h-6">📊</span>
+                        <span>Career & Impact</span>
+                    </a>
+                    <a href="#" class="nav-link flex items-center space-x-3 p-3 rounded-lg" data-page="projects">
+                        <span class="w-6 h-6">🚀</span>
+                        <span>Strategic Initiatives</span>
+                    </a>
+                    <a href="#" class="nav-link flex items-center space-x-3 p-3 rounded-lg" data-page="skills">
+                        <span class="w-6 h-6">💡</span>
+                        <span>Core Competencies</span>
+                    </a>
+                </nav>
+
+                <!-- Footer Links -->
+                <div class="mt-8 space-y-3 text-center md:text-left">
+                    <a href="https://linkedin.com/in/nehadangwal" target="_blank" class="flex items-center space-x-2 text-sm text-gray-600 hover:text-sky-700 transition-colors">
+                        <span class="w-5 h-5">🔗</span> <span>linkedin.com/in/nehadangwal</span>
+                    </a>
+                    <a href="https://nehadangwal.github.io/" target="_blank" class="flex items-center space-x-2 text-sm text-gray-600 hover:text-sky-700 transition-colors">
+                        <span class="w-5 h-5">📂</span> <span>nehadangwal.github.io</span>
+                    </a>
+                    <a href="mailto:dangwalncha2013@gmail.com" class="flex items-center space-x-2 text-sm text-gray-600 hover:text-sky-700 transition-colors">
+                        <span class="w-5 h-5">✉️</span> <span>dangwalncha2013@gmail.com</span>
+                    </a>
+                </div>
             </div>
-            <div>
-              <div style="font-weight:700">Technical Product Lead – Dell EMC (2016–2021)</div>
-              <ul>
-                <li>Built 0→1 enterprise automation products, achieving $1.4M+ annual savings.</li>
-                <li>Accelerated product cycles by 6 months through process innovation.</li>
-                <li>Drove adoption of automated systems across global teams through stakeholder alignment.</li>
-              </ul>
-            </div>
-            <div>
-              <div style="font-weight:700">Graduate Firmware Intern, Lifecycle Controller – Dell EMC (2015)</div>
-              <ul>  
-                <li>Contributed to server product optimization and performance evaluation.</li>
-                <li>Supported full product development lifecycle with engineering teams.</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
+        </aside>
 
-      <section id="philosophy">
-        <h2>Product & Platform Philosophy</h2>
-        <div class="card">
-          <ul>
-            <li><strong>Design for adoption:</strong> Ensure usability, phased rollout, and champion programs drive actual usage.</li>
-            <li><strong>Measure what matters:</strong> Align KPIs to developer throughput and business outcomes, not vanity metrics.</li>
-            <li><strong>Ship small, learn fast:</strong> Use pilots and rapid iteration to de-risk investment and validate assumptions.</li>
-            <li><strong>Prioritize ruthlessly:</strong> Focus on highest-impact work using data-driven frameworks (RICE, impact/effort).</li>
-          </ul>
-        </div>
-      </section>
+        <!-- Main Content Area -->
+        <main class="flex-1 p-6 md:p-10 lg:p-12 overflow-y-auto">
 
-      <section id="projects">
-        <h2>Selected Case Studies</h2>
+            <!-- Home / Summary Page -->
+            <section id="page-home" class="page-section active space-y-8">
+                <h2 class="text-4xl font-bold text-sky-900 border-b-4 border-sky-200 pb-2">Professional Summary</h2>
+                
+                <p class="text-lg text-gray-600">This dashboard summarizes my leadership in AI-enabled developer platforms, showcasing the key quantitative results and the strategic technical initiatives I've driven to deliver <strong>$17M+ in business value</strong>.</p>
 
-        <article class="project card">
-          <h3>Developer Platform Transformation – Cisco Systems</h3>
-          <p><strong>Problem:</strong> Long build/test cycles, high CI failures, and low platform adoption reduced engineering productivity across 250+ developers.</p>
-          <p><strong>Approach:</strong> Conducted 50+ developer interviews to identify pain points. Built self-service portal, defined multi-quarter roadmap, aligned 8 cross-functional teams, and launched CI reliability program.</p>
-          <div class="tradeoff">
-            <strong>Prioritization & Trade-offs:</strong> Faced competing requests from 8 teams. Applied RICE scoring to 40+ feature requests. Prioritized CI reliability improvements over new portal integrations (high impact, unglamorous work). Key trade-off: Delayed portal UI polish to ship core stability first—adoption still reached 85% because we solved the right problem.
-          </div>
-          <p><strong>Impact:</strong></p>
-          <div class="kpi">
-            <div class="item">$15.4M+ annual gains</div>
-            <div class="item">30% faster build/test</div>
-            <div class="item">60% fewer support tickets</div>
-            <div class="item">85%+ satisfaction</div>
-          </div>
-        </article>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="stat-card p-6 rounded-lg shadow-md">
+                        <div class="text-4xl font-bold text-sky-800">$17M+</div>
+                        <p class="text-lg text-gray-700 mt-2">Cumulative Business Value Delivered</p>
+                    </div>
+                    <div class="stat-card p-6 rounded-lg shadow-md">
+                        <div class="text-4xl font-bold text-sky-800">85%+</div>
+                        <p class="text-lg text-gray-700 mt-2">Platform Adoption & User Satisfaction</p>
+                    </div>
+                    <div class="stat-card p-6 rounded-lg shadow-md">
+                        <div class="text-4xl font-bold text-sky-800">30%</div>
+                        <p class="text-lg text-gray-700 mt-2">Reduction in Build/Test Cycles (CI/CD)</p>
+                    </div>
+                </div>
 
-        <article class="project card">
-          <h3>Automated Design Review System – Dell EMC</h3>
-          <p><strong>Problem:</strong> Manual design reviews delayed product cycles by weeks and created validation inconsistencies across global teams.</p>
-          <p><strong>Approach:</strong> Built lightweight Python automation tool to standardize validation and reduce review time from hours to seconds. Piloted with one team, refined based on feedback, and rolled out globally.</p>
-          <div class="tradeoff">
-            <strong>Prioritization & Trade-offs:</strong> Could have built comprehensive solution covering all 12 workflow types. Instead, targeted the single highest-friction workflow (design reviews) that affected 100% of releases. Trade-off: Narrower initial scope, but 10x faster time-to-value and easier adoption. Added other workflows incrementally based on validated demand.
-          </div>
-          <p><strong>Impact:</strong></p>
-          <div class="kpi">
-            <div class="item">6 months faster cycles</div>
-            <div class="item">Reviews cut to seconds</div>
-            <div class="item">$1.4M+ annual savings</div>
-            <div class="item">Adopted company-wide</div>
-          </div>
-        </article>
+                <div class="bg-white p-8 rounded-lg shadow-lg space-y-4 text-lg text-gray-700 leading-relaxed">
+                    <p>As a <strong>Senior Technical Product Leader</strong>, I drive high-impact AI and developer platform initiatives. My focus is on delivering measurable business value by optimizing CI/CD pipelines, integrating modern <strong>LLM-based solutions</strong>, and accelerating enterprise product delivery at scale.</p>
+                    <p>I have a proven ability to own the <strong>end-to-end product lifecycle</strong>—from initial discovery and <strong>technical roadmap</strong> definition to hands-on execution using <strong>Kubernetes</strong>, <strong>Python</strong>, and <strong>AI/ML</strong> solutions. My leadership ensures tangible outcomes and organizational change management.</p>
+                </div>
+            </section>
 
-        <article class="project card">
-          <h3>Multi-Agent AI Developer Assistant</h3>
-          <p><strong>Problem:</strong> Developers lost 3-5 hours daily to repetitive tasks (boilerplate code, documentation, test generation) and context switching. Existing tools lacked AI augmentation.</p>
-          <p><strong>Approach:</strong> Interviewed 20+ developers to prioritize use cases. Built GPT-4 powered CrewAI prototype with API-first design. Validated with human-in-loop workflows and iterative user testing.</p>
-          <div class="tradeoff">
-            <strong>Prioritization & Trade-offs:</strong> Scoped MVP to code generation + documentation vs. full development suite (debugging, testing, deployment). Validated highest-value use case first through user interviews. Trade-off: Left debugging/testing features for v2, but proved ROI in 8 weeks vs. 6-month timeline for comprehensive solution. This de-risked investment and enabled faster learning.
-          </div>
-          <p><strong>Impact:</strong></p>
-          <div class="kpi">
-            <div class="item">50% time savings on tasks</div>
-            <div class="item">85% user satisfaction</div>
-            <div class="item">$500K+ projected savings/100 devs</div>
-            <div class="item">Validated product-market fit</div>
-          </div>
-        </article>
+            <!-- Career & Impact Page -->
+            <section id="page-career" class="page-section space-y-8">
+                <h2 class="text-4xl font-bold text-sky-900 border-b-4 border-sky-200 pb-2">Career & Impact</h2>
+                <p class="text-lg text-gray-600">This section visualizes the quantifiable business impact and platform adoption I've driven in my key roles. Hover over the bars for specific metric details (e.g., millions saved vs. percentage adoption).</p>
+                
+                <div class="bg-white p-6 rounded-lg shadow-lg">
+                    <div class="chart-container">
+                        <canvas id="impactChart"></canvas>
+                    </div>
+                </div>
 
-      </section>
+                <div class="space-y-8">
+                    <!-- Cisco -->
+                    <div class="bg-white p-8 rounded-lg shadow-lg">
+                        <h3 class="text-2xl font-bold text-sky-800">Senior Technical Product Leader & Platform Product Owner</h3>
+                        <p class="text-lg text-gray-600 mb-4">Cisco Systems, San Jose, CA | Jul 2021 – Feb 2024</p>
+                        <ul class="list-disc list-outside space-y-3 pl-5 text-gray-700">
+                            <li>Defined and executed the <strong>2-year product roadmap</strong> for the core developer platform, serving <strong>250+ engineers</strong> and driving a <strong>$15.4M annual productivity gain</strong>.</li>
+                            <li>Owned the product vision for self-service tooling, cutting build/test time by <strong>30%</strong> and preventing <strong>16+ daily build failures</strong>.</li>
+                            <li>Drove <strong>85%+ platform adoption</strong> through targeted user research, stakeholder alignment, and continuous feature delivery.</li>
+                            <li>Implemented platform analytics (<strong>Prometheus/Grafana</strong>) to track KPIs and reduce incident response time by <strong>60%</strong>.</li>
+                        </ul>
+                    </div>
+                    <!-- Dell -->
+                    <div class="bg-white p-8 rounded-lg shadow-lg">
+                        <h3 class="text-2xl font-bold text-sky-800">Technical Product Lead</h3>
+                        <p class="text-lg text-gray-600 mb-4">Dell EMC, Austin, TX | Feb 2016 – Jun 2021</p>
+                        <ul class="list-disc list-outside space-y-3 pl-5 text-gray-700">
+                            <li>Led the technical product strategy for the enterprise hardware platform, driving innovation that achieved <strong>$1.4M+ in annual savings</strong> and accelerating product cycles by <strong>6 months</strong>.</li>
+                            <li><strong>Owned the full lifecycle</strong> (ideation, development, handover) for the Schematic Review Automation system, delivering <strong>$1M in annual savings (2018-2021)</strong> and training staff engineers.</li>
+                            <li>Standardized development frameworks and delivered custom firmware solutions, improving server uptime by <strong>44%</strong> and system throughput by <strong>40%</strong>.</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
 
-      <section id="skills">
-        <h2>Skills & Technologies</h2>
-        <div class="card">
-          <div class="tech">
-            <div class="t">Product Strategy</div>
-            <div class="t">User Research</div>
-            <div class="t">Roadmap Development</div>
-            <div class="t">Prioritization (RICE)</div>
-            <div class="t">Cross-functional Leadership</div>
-            <div class="t">Python</div>
-            <div class="t">FastAPI</div>
-            <div class="t">Kubernetes</div>
-            <div class="t">AWS</div>
-            <div class="t">CI/CD</div>
-            <div class="t">AI/ML Integration</div>
-          </div>
-        </div>
-      </section>
+            <!-- Strategic Initiatives / Projects Page -->
+            <section id="page-projects" class="page-section space-y-8">
+                <h2 class="text-4xl font-bold text-sky-900 border-b-4 border-sky-200 pb-2">Strategic Product Initiatives</h2>
+                <p class="text-lg text-gray-600">Explore key projects where I owned the product vision and deep technical execution. Use the tabs below to switch between case studies.</p>
 
-      <section id="contact">
-        <h2>Contact</h2>
-        <div class="card">
-          <p>Email: dangwalneha2013@gmail.com</p>
-          <p>Phone: (512) 698-1944</p>
-          <p>LinkedIn: <a href="https://linkedin.com/in/nehadangwal">linkedin.com/in/nehadangwal</a></p>
-        </div>
-      </section>
+                <!-- Project Tabs -->
+                <div class="flex overflow-x-auto border-b border-gray-300" id="project-tabs">
+                    <button class="project-tab active text-lg p-4 border-b-4 border-transparent" data-target="proj-1">🛡️ AI Log Analyzer</button>
+                    <button class="project-tab text-lg p-4 border-b-4 border-transparent" data-target="proj-2">🤖 AI Developer Assistant</button>
+                    <button class="project-tab text-lg p-4 border-b-4 border-transparent" data-target="proj-3">📝 AI Content Infrastructure</button>
+                    <button class="project-tab text-lg p-4 border-b-4 border-transparent" data-target="proj-4">🛠️ Schematic Review Automation</button>
+                </div>
 
-      <footer>
-        Built by Neha Dangwal • Senior Technical Product Leader
-      </footer>
-    </main>
-  </div>
+                <!-- Project Content -->
+                <div class="bg-white p-8 rounded-lg shadow-lg">
+                    <!-- Project 1: AI Log Analyzer -->
+                    <div id="proj-1" class="project-tab-content active space-y-6">
+                        <h3 class="text-2xl font-bold text-sky-800">AI-Powered Log Analyzer for Cybersecurity</h3>
+                        <a href="https://github.com/nehadangwal/cybersecurity-log-analyzer" target="_blank" class="inline-block bg-gray-800 text-white px-4 py-2 rounded-lg text-sm hover:bg-gray-700 transition-colors">
+                            View Code on GitHub ↗
+                        </a>
+                        <p class="text-lg">This project showcases my ability to define a high-impact solution for <strong>SOC Analysts</strong> by using <strong>Unsupervised ML</strong> to identify threats in real-time, focusing on cost-efficiency and performance.</p>
+                        
+                        <div class="space-y-4">
+                            <h4 class="text-xl font-semibold">Technical Architecture & Data Flow</h4>
+                            <p>The system is architected for high-volume, real-time log analysis. It processes logs via a high-performance backend, applies the predictive model, and delivers actionable insights to the frontend dashboard, all containerized for production readiness.</p>
+                            
+                            <!-- Custom HTML/CSS Architecture Diagram for AI Log Analyzer -->
+                            <div class="arch-diagram-flow">
+                                <div class="arch-step">
+                                    <div class="arch-box-node bg-blue-100 border-blue-300 text-blue-900">
+                                        <strong>Log Source</strong><br>(Stream/File Input)
+                                    </div>
+                                    <span class="arch-arrow">⬇️</span>
+                                    <p class="text-xs text-gray-500">Log Ingestion</p>
+                                </div>
+                                <div class="arch-step">
+                                    <div class="arch-box-node bg-green-100 border-green-300 text-green-900">
+                                        <strong>Backend API (Flask 3.0)</strong><br>
+                                        <span class="font-normal text-sm">ML Model Host (Isolation Forest)</span>
+                                    </div>
+                                    <span class="arch-arrow">⬇️</span>
+                                    <p class="text-xs text-gray-500">Anomaly Detection</p>
+                                </div>
+                                <div class="arch-step">
+                                    <div class="arch-box-node bg-purple-100 border-purple-300 text-purple-900">
+                                        <strong>Data Store (PostgreSQL)</strong><br>
+                                        <span class="font-normal text-sm">Results & Audit Trails</span>
+                                    </div>
+                                    <span class="arch-arrow">⬇️</span>
+                                    <p class="text-xs text-gray-500">Persist Findings</p>
+                                </div>
+                                <div class="arch-step">
+                                    <div class="arch-box-node bg-yellow-100 border-yellow-300 text-yellow-900">
+                                        <strong>Frontend (Next.js 14)</strong><br>
+                                        <span class="font-normal text-sm">Dashboard & Classification View</span>
+                                    </div>
+                                    <p class="text-xs text-gray-500 mt-2">SOC Analyst View</p>
+                                </div>
+                            </div>
+                            <p class="text-center text-sm text-gray-500 mt-4">System is fully containerized (<strong>Docker/Docker Compose</strong>).</p>
+                        </div>
+                        
+                        <div class="space-y-4 pt-4">
+                            <h4 class="text-xl font-semibold">Product Strategy & Key Trade-offs</h4>
+                            <ul class="list-disc list-outside space-y-2 pl-5">
+                                <li><strong>Technical Decision:</strong> Selected <strong>Isolation Forest</strong> (unsupervised ML) because it requires no training data and results in <strong>$0 operational cost</strong> (no API calls), solving the scalability/cost challenge.</li>
+                                <li><strong>Core Feature:</strong> Implemented <strong>severity classification</strong> (Critical/High/Medium/Low) to provide immediate, actionable insights for analysts, accelerating response time.</li>
+                                <li><strong>Performance:</strong> Designed to process <strong>10,000+ log entries per second</strong>, demonstrating high-performance system design ability.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Project 2: AI Developer Assistant -->
+                    <div id="proj-2" class="project-tab-content space-y-6">
+                        <h3 class="text-2xl font-bold text-sky-800">AI Developer Assistant Platform</h3>
+                        <p class="text-lg">This initiative focused on leveraging Generative AI to solve concrete developer productivity bottlenecks, resulting in validated high user satisfaction and significant cost savings.</p>
+                        
+                        <div class="space-y-4">
+                            <h4 class="text-xl font-semibold">Impact & Validation</h4>
+                            <ul class="list-disc list-outside space-y-2 pl-5">
+                                <li>Architected a multi-agent AI system using <strong>CrewAI and GPT-4</strong>.</li>
+                                <li>Projected to deliver <strong>$500K+ annual savings</strong> per 100 developers by reducing time on routine tasks by <strong>50%</strong>.</li>
+                                <li>Led product validation with <strong>20+ engineers</strong>, achieving an <strong>85% user satisfaction</strong> score post-pilot.</li>
+                            </ul>
+                        </div>
+
+                        <div class="space-y-4">
+                            <h4 class="text-xl font-semibold">Architecture & Metrics</h4>
+                            <p>Built <strong>SQL-based analytics dashboards</strong> to track assistant usage patterns and effectiveness, informing feature roadmap and proving product value through data.</p>
+                        </div>
+                    </div>
+
+                    <!-- Project 3: AI Content Infrastructure -->
+                    <div id="proj-3" class="project-tab-content space-y-6">
+                        <h3 class="text-2xl font-bold text-sky-800">AI-Powered Content Infrastructure (Ongoing)</h3>
+                        <p class="text-lg">This is a strategic, long-term initiative to solve the problem of technical documentation scalability using NLP and a robust platform architecture.</p>
+                        
+                        <div class="space-y-4">
+                            <h4 class="text-xl font-semibold">Problem & Strategy</h4>
+                            <p>Defining an <strong>NLP pipeline</strong> with automated quality scoring and human-in-the-loop workflows to maintain high-quality technical documentation across multiple products.</p>
+                        </div>
+                        
+                        <div class="space-y-4">
+                            <h4 class="text-xl font-semibold">System Design</h4>
+                            <p>Designing a modular architecture with plugin interfaces for easy integration into various Content Management Systems (CMS), leveraging <strong>Python and SQL</strong> for backend content quality analysis.</p>
+                        </div>
+                    </div>
+
+                    <!-- Project 4: Schematic Review Automation (UPDATED PROJECT) -->
+                    <div id="proj-4" class="project-tab-content space-y-6">
+                        <h3 class="text-2xl font-bold text-sky-800">Schematic Review Automation (Dell EMC)</h3>
+                        <p class="text-lg">Led the <strong>full lifecycle ownership</strong> of a critical internal automation product, delivering significant, recurring financial impact and organizational efficiency across global engineering teams.</p>
+                        
+                        <div class="space-y-4">
+                            <h4 class="text-xl font-semibold">Impact & Ownership</h4>
+                            <ul class="list-disc list-outside space-y-2 pl-5">
+                                <li><strong>Financial Impact:</strong> Delivered <strong>$1M in annual savings</strong> every year from <strong>2018–2021</strong> by replacing manual, multi-day schematic design reviews with instantaneous, automated validation.</li>
+                                <li><strong>Lifecycle Role:</strong> Drove the project from <strong>ideation to development</strong>, including the <strong>handover</strong> to the dedicated sustaining team.</li>
+                                <li><strong>Change Management:</strong> Conducted comprehensive <strong>training sessions for staff engineers</strong> and senior designers to ensure seamless, company-wide adoption.</li>
+                            </ul>
+                        </div>
+
+                        <div class="space-y-4">
+                            <h4 class="text-xl font-semibold">Technical Solution & Process Innovation</h4>
+                            <ul class="list-disc list-outside space-y-2 pl-5">
+                                <li>Architected a robust automation framework that standardized validation processes across multiple server product lines.</li>
+                                <li><strong>Accelerated product cycles by 6 months</strong> by eliminating the manual design review bottleneck.</li>
+                                <li>The solution was built using core infrastructure scripting tools, prioritizing reliability and zero maintenance cost.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Core Competencies / Skills Page -->
+            <section id="page-skills" class="page-section space-y-8">
+                <h2 class="text-4xl font-bold text-sky-900 border-b-4 border-sky-200 pb-2">Core Competencies</h2>
+                <p class="text-lg text-gray-600">My expertise is categorized below. Use the search bar to filter and highlight skills matching a specific job description for quick verification.</p>
+
+                <div class="mb-6">
+                    <input type="text" id="skill-search" placeholder="Search for a skill (e.g., Kubernetes, Python, Roadmap)..." class="w-full p-4 border border-gray-300 rounded-lg shadow-inner focus:outline-none focus:ring-2 focus:ring-sky-500">
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="bg-white p-6 rounded-lg shadow-lg">
+                        <h3 class="text-2xl font-bold text-sky-800 mb-4 border-b-2 border-sky-100 pb-2">Product Strategy & Leadership</h3>
+                        <ul class="space-y-2 skill-list">
+                            <li class="skill-item p-2 rounded">Roadmap Definition</li>
+                            <li class="skill-item p-2 rounded">Value Proposition</li>
+                            <li class="skill-item p-2 rounded">Discovery & Adoption</li>
+                            <li class="skill-item p-2 rounded">Stakeholder Management</li>
+                            <li class="skill-item p-2 rounded">Cross-functional Alignment</li>
+                            <li class="skill-item p-2 rounded">Organizational Change Mgmt</li>
+                            <li class="skill-item p-2 rounded">Metrics-Driven Development</li>
+                        </ul>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-lg">
+                        <h3 class="text-2xl font-bold text-sky-800 mb-4 border-b-2 border-sky-100 pb-2">AI/ML & Platform Architecture</h3>
+                        <ul class="space-y-2 skill-list">
+                            <li class="skill-item p-2 rounded">AI/ML Integration</li>
+                            <li class="skill-item p-2 rounded">LLMs (GPT-4, CrewAI)</li>
+                            <li class="skill-item p-2 rounded">Unsupervised ML (Isolation Forest)</li>
+                            <li class="skill-item p-2 rounded">Platform Architecture</li>
+                            <li class="skill-item p-2 rounded">Microservices</li>
+                            <li class="skill-item p-2 rounded">System Design</li>
+                            <li class="skill-item p-2 rounded">CI/CD & DevOps Optimization</li>
+                        </ul>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-lg">
+                        <h3 class="text-2xl font-bold text-sky-800 mb-4 border-b-2 border-sky-100 pb-2">Technologies & Tools</h3>
+                        <ul class="space-y-2 skill-list">
+                            <li class="skill-item p-2 rounded">Python / FastAPI</li>
+                            <li class="skill-item p-2 rounded">SQL / PostgreSQL</li>
+                            <li class="skill-item p-2 rounded">Docker / Kubernetes (K8s)</li>
+                            <li class="skill-item p-2 rounded">AWS</li>
+                            <li class="skill-item p-2 rounded">Prometheus & Grafana</li>
+                            <li class="skill-item p-2 rounded">Next.js / TypeScript (Full-Stack)</li>
+                            <li class="skill-item p-2 rounded">Program Management (Agile/Scrum)</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            
+            // --- Resume Data Store ---
+            const resumeData = {
+                careerImpact: {
+                    // Changed the label to reflect the entire 2016-2021 period
+                    labels: ['Dell EMC (2016-2021)', 'Cisco Systems (2021-2024)'],
+                    datasets: [
+                        {
+                            label: 'Annual Gains/Savings ($M)',
+                            data: [1.4, 15.4], // 1.4M is the general annual saving for Dell EMC role
+                            backgroundColor: 'rgba(3, 105, 161, 0.7)', // sky-700
+                            borderColor: 'rgba(3, 105, 161, 1)',
+                            borderWidth: 1
+                        },
+                        {
+                            label: 'Platform Adoption / User Sat. (%)',
+                            data: [0, 85], 
+                            backgroundColor: 'rgba(125, 211, 252, 0.7)', // sky-300
+                            borderColor: 'rgba(125, 211, 252, 1)',
+                            borderWidth: 1,
+                            yAxisID: 'y1'
+                        }
+                    ]
+                }
+            };
+
+            // --- Page Navigation Logic ---
+            const navLinks = document.querySelectorAll('#main-nav .nav-link');
+            const pages = document.querySelectorAll('.page-section');
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const pageId = this.getAttribute('data-page');
+
+                    // Update Nav Links
+                    navLinks.forEach(nav => nav.classList.remove('active'));
+                    this.classList.add('active');
+
+                    // Update Page Content
+                    pages.forEach(page => {
+                        if (page.id === 'page-' + pageId) {
+                            page.classList.add('active');
+                        } else {
+                            page.classList.remove('active');
+                        }
+                    });
+                    
+                    // Initialize chart only when page is shown
+                    if (pageId === 'career') {
+                        initImpactChart();
+                    }
+                });
+            });
+
+            // --- Project Tabs Logic ---
+            const projectTabs = document.querySelectorAll('.project-tab');
+            const projectContents = document.querySelectorAll('.project-tab-content');
+
+            projectTabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    const targetId = this.getAttribute('data-target');
+
+                    // Update Tabs
+                    projectTabs.forEach(t => t.classList.remove('active'));
+                    this.classList.add('active');
+
+                    // Update Content
+                    projectContents.forEach(content => {
+                        if (content.id === targetId) {
+                            content.classList.add('active');
+                        } else {
+                            content.classList.remove('active');
+                        }
+                    });
+                });
+            });
+
+            // --- Skill Search Logic ---
+            const skillSearch = document.getElementById('skill-search');
+            const skillItems = document.querySelectorAll('.skill-item');
+
+            skillSearch.addEventListener('keyup', function(e) {
+                const searchTerm = e.target.value.toLowerCase();
+
+                skillItems.forEach(item => {
+                    const skillText = item.textContent.toLowerCase();
+                    if (searchTerm === '' || skillText.includes(searchTerm)) {
+                        item.classList.remove('highlight');
+                        item.style.display = 'list-item';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                    
+                    if(searchTerm !== '' && skillText.includes(searchTerm)) {
+                        item.classList.add('highlight');
+                    }
+                });
+            });
+
+            // --- Chart.js Logic ---
+            let impactChartInstance = null;
+            const ctx = document.getElementById('impactChart').getContext('2d');
+
+            function initImpactChart() {
+                if (impactChartInstance) {
+                    impactChartInstance.destroy();
+                }
+                
+                const chartData = resumeData.careerImpact;
+
+                // Function to wrap labels
+                function formatLabel(str, maxwidth) {
+                    const sections = [];
+                    const words = str.split(" ");
+                    let temp = "";
+                    words.forEach((item, index) => {
+                        if ((temp + item).length > maxwidth) {
+                            sections.push(temp);
+                            temp = "";
+                        }
+                        temp += (index == 0 ? "" : " ") + item;
+                    });
+                    sections.push(temp);
+                    return sections;
+                }
+
+                impactChartInstance = new Chart(ctx, {
+                    type: 'bar',
+                    data: chartData,
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            title: {
+                                display: true,
+                                // Title is updated to reflect the full 2016-2021 range now covered
+                                text: 'Key Impact Metrics by Role (2016-2024)',
+                                font: {
+                                    size: 18,
+                                    weight: 'bold'
+                                },
+                                color: '#0c4a6e' // sky-900
+                            },
+                            tooltip: {
+                                mode: 'index',
+                                intersect: false,
+                                callbacks: {
+                                    label: function(context) {
+                                        let label = context.dataset.label || '';
+                                        if (label) {
+                                            label += ': ';
+                                        }
+                                        if (context.parsed.y !== null) {
+                                            if (context.dataset.yAxisID === 'y1') {
+                                                label += context.parsed.y + '%';
+                                            } else {
+                                                label += '$' + context.parsed.y + 'M';
+                                            }
+                                        }
+                                        return label;
+                                    }
+                                }
+                            }
+                        },
+                        scales: {
+                            x: {
+                                grid: {
+                                    display: false
+                                },
+                                ticks: {
+                                    callback: function(value, index, values) {
+                                        return formatLabel(this.getLabelForValue(value), 15);
+                                    }
+                                }
+                            },
+                            y: {
+                                type: 'linear',
+                                display: true,
+                                position: 'left',
+                                beginAtZero: true,
+                                title: {
+                                    display: true,
+                                    text: 'Annual Gains/Savings ($M)',
+                                    color: '#0369a1' // sky-700
+                                },
+                                grid: {
+                                    drawOnChartArea: false, 
+                                }
+                            },
+                            y1: {
+                                type: 'linear',
+                                display: true,
+                                position: 'right',
+                                beginAtZero: true,
+                                max: 100,
+                                title: {
+                                    display: true,
+                                    text: 'Adoption / Satisfaction (%)',
+                                    color: '#0ea5e9' // sky-500
+                                },
+                                grid: {
+                                    drawOnChartArea: false, 
+                                }
+                            }
+                        }
+                    }
+                });
+            }
+            
+            // Initial page load
+            document.getElementById('page-home').classList.add('active');
+
+        });
+    </script>
 </body>
 </html>
