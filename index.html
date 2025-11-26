@@ -260,6 +260,7 @@
 
                 <!-- Project Tabs -->
                 <div class="flex overflow-x-auto border-b border-gray-300" id="project-tabs">
+                    <button class="project-tab active text-lg p-4 border-b-4 border-transparent" data-target="proj-trainops">📈 TrainOps Observatory</button>
                     <button class="project-tab active text-lg p-4 border-b-4 border-transparent" data-target="proj-1">🛡️ AI Log Analyzer</button>
                     <button class="project-tab text-lg p-4 border-b-4 border-transparent" data-target="proj-2">🤖 AI Developer Assistant</button>
                     <button class="project-tab text-lg p-4 border-b-4 border-transparent" data-target="proj-3">📝 AI Content Infrastructure</button>
@@ -268,124 +269,184 @@
 
                 <!-- Project Content -->
                 <div class="bg-white p-8 rounded-lg shadow-lg">
-                    <!-- Project 1: AI Log Analyzer -->
-                    <div id="proj-1" class="project-tab-content active space-y-6">
-                        <h3 class="text-2xl font-bold text-sky-800">AI-Powered Log Analyzer for Cybersecurity</h3>
-                        <a href="https://github.com/nehadangwal/cybersecurity-log-analyzer" target="_blank" class="inline-block bg-gray-800 text-white px-4 py-2 rounded-lg text-sm hover:bg-gray-700 transition-colors">
-                            View Code on GitHub ↗
-                        </a>
-                        <p class="text-lg">This project showcases my ability to define a high-impact solution for <strong>SOC Analysts</strong> by using <strong>Unsupervised ML</strong> to identify threats in real-time, focusing on cost-efficiency and performance.</p>
-                        
-                        <div class="space-y-4">
-                            <h4 class="text-xl font-semibold">Technical Architecture & Data Flow</h4>
-                            <p>The system is architected for high-volume, real-time log analysis. It processes logs via a high-performance backend, applies the predictive model, and delivers actionable insights to the frontend dashboard, all containerized for production readiness.</p>
-                            
-                            <!-- Custom HTML/CSS Architecture Diagram for AI Log Analyzer -->
-                            <div class="arch-diagram-flow">
-                                <div class="arch-step">
-                                    <div class="arch-box-node bg-blue-100 border-blue-300 text-blue-900">
-                                        <strong>Log Source</strong><br>(Stream/File Input)
-                                    </div>
-                                    <span class="arch-arrow">⬇️</span>
-                                    <p class="text-xs text-gray-500">Log Ingestion</p>
-                                </div>
-                                <div class="arch-step">
-                                    <div class="arch-box-node bg-green-100 border-green-300 text-green-900">
-                                        <strong>Backend API (Flask 3.0)</strong><br>
-                                        <span class="font-normal text-sm">ML Model Host (Isolation Forest)</span>
-                                    </div>
-                                    <span class="arch-arrow">⬇️</span>
-                                    <p class="text-xs text-gray-500">Anomaly Detection</p>
-                                </div>
-                                <div class="arch-step">
-                                    <div class="arch-box-node bg-purple-100 border-purple-300 text-purple-900">
-                                        <strong>Data Store (PostgreSQL)</strong><br>
-                                        <span class="font-normal text-sm">Results & Audit Trails</span>
-                                    </div>
-                                    <span class="arch-arrow">⬇️</span>
-                                    <p class="text-xs text-gray-500">Persist Findings</p>
-                                </div>
-                                <div class="arch-step">
-                                    <div class="arch-box-node bg-yellow-100 border-yellow-300 text-yellow-900">
-                                        <strong>Frontend (Next.js 14)</strong><br>
-                                        <span class="font-normal text-sm">Dashboard & Classification View</span>
-                                    </div>
-                                    <p class="text-xs text-gray-500 mt-2">SOC Analyst View</p>
-                                </div>
-                            </div>
-                            <p class="text-center text-sm text-gray-500 mt-4">System is fully containerized (<strong>Docker/Docker Compose</strong>).</p>
-                        </div>
-                        
-                        <div class="space-y-4 pt-4">
-                            <h4 class="text-xl font-semibold">Product Strategy & Key Trade-offs</h4>
-                            <ul class="list-disc list-outside space-y-2 pl-5">
-                                <li><strong>Technical Decision:</strong> Selected <strong>Isolation Forest</strong> (unsupervised ML) because it requires no training data and results in <strong>$0 operational cost</strong> (no API calls), solving the scalability/cost challenge.</li>
-                                <li><strong>Core Feature:</strong> Implemented <strong>severity classification</strong> (Critical/High/Medium/Low) to provide immediate, actionable insights for analysts, accelerating response time.</li>
-                                <li><strong>Performance:</strong> Designed to process <strong>10,000+ log entries per second</strong>, demonstrating high-performance system design ability.</li>
-                            </ul>
-                        </div>
+    <div id="proj-trainops" class="project-tab-content active space-y-6">
+        <h3 class="text-2xl font-bold text-sky-800">TrainOps Observatory: MLOps Observability & Cost Optimization</h3>
+        <a href="https://github.com/nehadangwal/trainops-observatory" target="_blank" class="inline-block bg-gray-800 text-white px-4 py-2 rounded-lg text-sm hover:bg-gray-700 transition-colors">
+            View Code on GitHub ↗
+        </a>
+        <p class="text-lg">A lightweight, low-overhead solution for real-time **ML training workflow observability** and **cost optimization**. This project demonstrates expertise in building production-ready developer/ML platforms and delivering direct financial impact.</p>
+        
+        <div class="space-y-4">
+            <h4 class="text-xl font-semibold">✨ Key Features & Value Proposition</h4>
+            <ul class="list-disc list-outside space-y-2 pl-5">
+                <li>**Zero Overhead:** Less than 1% impact on training time, achieving minimal friction for developers.</li>
+                <li>**Minimal Integration:** Requires only **5 lines of Python** to integrate into existing ML training scripts.</li>
+                <li>**Direct Cost Savings:** Automatically detects bottlenecks (I/O, CPU, GPU) and provides validated recommendations for **up to 42% cost reduction**.</li>
+                <li>**Real-Time Metrics:** Tracks critical metrics like GPU/CPU utilization, memory, and throughput.</li>
+            </ul>
+        </div>
+
+        <div class="space-y-4">
+            <h4 class="text-xl font-semibold">🏗️ Architecture & Technology Stack</h4>
+            <p>Designed for scalability and time-series data handling, the system utilizes a high-performance database and a robust Python SDK for instrumentation.</p>
+            
+            <div class="arch-diagram-flow">
+                <div class="arch-step">
+                    <div class="arch-box-node bg-blue-100 border-blue-300 text-blue-900">
+                        <strong>Training Script</strong><br>(Python SDK)
                     </div>
-
-                    <!-- Project 2: AI Developer Assistant -->
-                    <div id="proj-2" class="project-tab-content space-y-6">
-                        <h3 class="text-2xl font-bold text-sky-800">AI Developer Assistant Platform</h3>
-                        <p class="text-lg">This initiative focused on leveraging Generative AI to solve concrete developer productivity bottlenecks, resulting in validated high user satisfaction and significant cost savings.</p>
-                        
-                        <div class="space-y-4">
-                            <h4 class="text-xl font-semibold">Impact & Validation</h4>
-                            <ul class="list-disc list-outside space-y-2 pl-5">
-                                <li>Architected a multi-agent AI system using <strong>CrewAI and GPT-4</strong>.</li>
-                                <li>Projected to deliver <strong>$500K+ annual savings</strong> per 100 developers by reducing time on routine tasks by <strong>50%</strong>.</li>
-                                <li>Led product validation with <strong>20+ engineers</strong>, achieving an <strong>85% user satisfaction</strong> score post-pilot.</li>
-                            </ul>
-                        </div>
-
-                        <div class="space-y-4">
-                            <h4 class="text-xl font-semibold">Architecture & Metrics</h4>
-                            <p>Built <strong>SQL-based analytics dashboards</strong> to track assistant usage patterns and effectiveness, informing feature roadmap and proving product value through data.</p>
-                        </div>
-                    </div>
-
-                    <!-- Project 3: AI Content Infrastructure -->
-                    <div id="proj-3" class="project-tab-content space-y-6">
-                        <h3 class="text-2xl font-bold text-sky-800">AI-Powered Content Infrastructure (Ongoing)</h3>
-                        <p class="text-lg">This is a strategic, long-term initiative to solve the problem of technical documentation scalability using NLP and a robust platform architecture.</p>
-                        
-                        <div class="space-y-4">
-                            <h4 class="text-xl font-semibold">Problem & Strategy</h4>
-                            <p>Defining an <strong>NLP pipeline</strong> with automated quality scoring and human-in-the-loop workflows to maintain high-quality technical documentation across multiple products.</p>
-                        </div>
-                        
-                        <div class="space-y-4">
-                            <h4 class="text-xl font-semibold">System Design</h4>
-                            <p>Designing a modular architecture with plugin interfaces for easy integration into various Content Management Systems (CMS), leveraging <strong>Python and SQL</strong> for backend content quality analysis.</p>
-                        </div>
-                    </div>
-
-                    <!-- Project 4: Schematic Review Automation (UPDATED PROJECT) -->
-                    <div id="proj-4" class="project-tab-content space-y-6">
-                        <h3 class="text-2xl font-bold text-sky-800">Schematic Review Automation (Dell EMC)</h3>
-                        <p class="text-lg">Led the <strong>full lifecycle ownership</strong> of a critical internal automation product, delivering significant, recurring financial impact and organizational efficiency across global engineering teams.</p>
-                        
-                        <div class="space-y-4">
-                            <h4 class="text-xl font-semibold">Impact & Ownership</h4>
-                            <ul class="list-disc list-outside space-y-2 pl-5">
-                                <li><strong>Financial Impact:</strong> Delivered <strong>$1M in annual savings</strong> every year from <strong>2018–2021</strong> by replacing manual, multi-day schematic design reviews with instantaneous, automated validation.</li>
-                                <li><strong>Lifecycle Role:</strong> Drove the project from <strong>ideation to development</strong>, including the <strong>handover</strong> to the dedicated sustaining team.</li>
-                                <li><strong>Change Management:</strong> Conducted comprehensive <strong>training sessions for staff engineers</strong> and senior designers to ensure seamless, company-wide adoption.</li>
-                            </ul>
-                        </div>
-
-                        <div class="space-y-4">
-                            <h4 class="text-xl font-semibold">Technical Solution & Process Innovation</h4>
-                            <ul class="list-disc list-outside space-y-2 pl-5">
-                                <li>Architected a robust automation framework that standardized validation processes across multiple server product lines.</li>
-                                <li><strong>Accelerated product cycles by 6 months</strong> by eliminating the manual design review bottleneck.</li>
-                                <li>The solution was built using core infrastructure scripting tools, prioritizing reliability and zero maintenance cost.</li>
-                            </ul>
-                        </div>
-                    </div>
+                    <span class="arch-arrow">▶️</span>
+                    <p class="text-xs text-gray-500 mt-1">Lightweight Metrics Collection</p>
                 </div>
+                <div class="arch-step">
+                    <div class="arch-box-node bg-green-100 border-green-300 text-green-900">
+                        <strong>Flask Backend</strong><br>
+                        <span class="font-normal text-sm">REST API Ingestion / Bottleneck Engine</span>
+                    </div>
+                    <span class="arch-arrow">▶️</span>
+                    <p class="text-xs text-gray-500 mt-1">Data Storage & Analysis</p>
+                </div>
+                <div class="arch-step">
+                    <div class="arch-box-node bg-purple-100 border-purple-300 text-purple-900">
+                        <strong>TimescaleDB</strong><br>
+                        <span class="font-normal text-sm">Time-Series Optimized PostgreSQL</span>
+                    </div>
+                    <span class="arch-arrow">⬇️</span>
+                    <p class="text-xs text-gray-500 mt-1">Visualization & Reporting</p>
+                </div>
+                <div class="arch-step">
+                    <div class="arch-box-node bg-yellow-100 border-yellow-300 text-yellow-900">
+                        <strong>CLI Tool & Dashboard</strong><br>
+                        <span class="font-normal text-sm">Operator Interface</span>
+                    </div>
+                    <p class="text-xs text-gray-500 mt-2">Team-Wide Observability</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="space-y-4 pt-4">
+            <h4 class="text-xl font-semibold">🎯 Business Impact & Product Ownership</h4>
+            <ul class="list-disc list-outside space-y-2 pl-5">
+                <li>**Quantified Savings:** Provided specific, actionable recommendations (e.g., adding `num_workers`) that reduced training time/cost by **42%** in one use case.</li>
+                <li>**Product Roadmap:** Drove development through a structured roadmap, including the core SDK, backend, CLI, and future **Next.js dashboard** for visualization and run comparison.</li>
+                <li>**Technical Leadership:** Demonstrated ability to build a robust, maintainable system from scratch, fully containerized (Docker) for easy deployment.</li>
+            </ul>
+        </div>
+    </div>
+    
+    <div id="proj-1" class="project-tab-content space-y-6">
+        <h3 class="text-2xl font-bold text-sky-800">AI-Powered Log Analyzer for Cybersecurity</h3>
+        <a href="https://github.com/nehadangwal/cybersecurity-log-analyzer" target="_blank" class="inline-block bg-gray-800 text-white px-4 py-2 rounded-lg text-sm hover:bg-gray-700 transition-colors">
+            View Code on GitHub ↗
+        </a>
+        <p class="text-lg">This project showcases my ability to define a high-impact solution for <strong>SOC Analysts</strong> by using <strong>Unsupervised ML</strong> to identify threats in real-time, focusing on cost-efficiency and performance.</p>
+        
+        <div class="space-y-4">
+            <h4 class="text-xl font-semibold">Technical Architecture & Data Flow</h4>
+            <p>The system is architected for high-volume, real-time log analysis. It processes logs via a high-performance backend, applies the predictive model, and delivers actionable insights to the frontend dashboard, all containerized for production readiness.</p>
+            
+            <div class="arch-diagram-flow">
+                <div class="arch-step">
+                    <div class="arch-box-node bg-blue-100 border-blue-300 text-blue-900">
+                        <strong>Log Source</strong><br>(Stream/File Input)
+                    </div>
+                    <span class="arch-arrow">⬇️</span>
+                    <p class="text-xs text-gray-500">Log Ingestion</p>
+                </div>
+                <div class="arch-step">
+                    <div class="arch-box-node bg-green-100 border-green-300 text-green-900">
+                        <strong>Backend API (Flask 3.0)</strong><br>
+                        <span class="font-normal text-sm">ML Model Host (Isolation Forest)</span>
+                    </div>
+                    <span class="arch-arrow">⬇️</span>
+                    <p class="text-xs text-gray-500">Anomaly Detection</p>
+                </div>
+                <div class="arch-step">
+                    <div class="arch-box-node bg-purple-100 border-purple-300 text-purple-900">
+                        <strong>Data Store (PostgreSQL)</strong><br>
+                        <span class="font-normal text-sm">Results & Audit Trails</span>
+                    </div>
+                    <span class="arch-arrow">⬇️</span>
+                    <p class="text-xs text-gray-500">Persist Findings</p>
+                </div>
+                <div class="arch-step">
+                    <div class="arch-box-node bg-yellow-100 border-yellow-300 text-yellow-900">
+                        <strong>Frontend (Next.js 14)</strong><br>
+                        <span class="font-normal text-sm">Dashboard & Classification View</span>
+                    </div>
+                    <p class="text-xs text-gray-500 mt-2">SOC Analyst View</p>
+                </div>
+            </div>
+            <p class="text-center text-sm text-gray-500 mt-4">System is fully containerized (<strong>Docker/Docker Compose</strong>).</p>
+        </div>
+        
+        <div class="space-y-4 pt-4">
+            <h4 class="text-xl font-semibold">Product Strategy & Key Trade-offs</h4>
+            <ul class="list-disc list-outside space-y-2 pl-5">
+                <li><strong>Technical Decision:</strong> Selected <strong>Isolation Forest</strong> (unsupervised ML) because it requires no training data and results in <strong>$0 operational cost</strong> (no API calls), solving the scalability/cost challenge.</li>
+                <li><strong>Core Feature:</strong> Implemented <strong>severity classification</strong> (Critical/High/Medium/Low) to provide immediate, actionable insights for analysts, accelerating response time.</li>
+                <li><strong>Performance:</strong> Designed to process <strong>10,000+ log entries per second</strong>, demonstrating high-performance system design ability.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="proj-2" class="project-tab-content space-y-6">
+        <h3 class="text-2xl font-bold text-sky-800">AI Developer Assistant Platform</h3>
+        <p class="text-lg">This initiative focused on leveraging Generative AI to solve concrete developer productivity bottlenecks, resulting in validated high user satisfaction and significant cost savings.</p>
+        
+        <div class="space-y-4">
+            <h4 class="text-xl font-semibold">Impact & Validation</h4>
+            <ul class="list-disc list-outside space-y-2 pl-5">
+                <li>Architected a multi-agent AI system using <strong>CrewAI and GPT-4</strong>.</li>
+                <li>Projected to deliver <strong>$500K+ annual savings</strong> per 100 developers by reducing time on routine tasks by <strong>50%</strong>.</li>
+                <li>Led product validation with <strong>20+ engineers</strong>, achieving an <strong>85% user satisfaction</strong> score post-pilot.</li>
+            </ul>
+        </div>
+
+        <div class="space-y-4">
+            <h4 class="text-xl font-semibold">Architecture & Metrics</h4>
+            <p>Built <strong>SQL-based analytics dashboards</strong> to track assistant usage patterns and effectiveness, informing feature roadmap and proving product value through data.</p>
+        </div>
+    </div>
+
+    <div id="proj-3" class="project-tab-content space-y-6">
+        <h3 class="text-2xl font-bold text-sky-800">AI-Powered Content Infrastructure (Ongoing)</h3>
+        <p class="text-lg">This is a strategic, long-term initiative to solve the problem of technical documentation scalability using NLP and a robust platform architecture.</p>
+        
+        <div class="space-y-4">
+            <h4 class="text-xl font-semibold">Problem & Strategy</h4>
+            <p>Defining an <strong>NLP pipeline</strong> with automated quality scoring and human-in-the-loop workflows to maintain high-quality technical documentation across multiple products.</p>
+        </div>
+        
+        <div class="space-y-4">
+            <h4 class="text-xl font-semibold">System Design</h4>
+            <p>Designing a modular architecture with plugin interfaces for easy integration into various Content Management Systems (CMS), leveraging <strong>Python and SQL</strong> for backend content quality analysis.</p>
+        </div>
+    </div>
+
+    <div id="proj-4" class="project-tab-content space-y-6">
+        <h3 class="text-2xl font-bold text-sky-800">Schematic Review Automation (Dell EMC)</h3>
+        <p class="text-lg">Led the <strong>full lifecycle ownership</strong> of a critical internal automation product, delivering significant, recurring financial impact and organizational efficiency across global engineering teams.</p>
+        
+        <div class="space-y-4">
+            <h4 class="text-xl font-semibold">Impact & Ownership</h4>
+            <ul class="list-disc list-outside space-y-2 pl-5">
+                <li><strong>Financial Impact:</strong> Delivered <strong>$1M in annual savings</strong> every year from <strong>2018–2021</strong> by replacing manual, multi-day schematic design reviews with instantaneous, automated validation.</li>
+                <li><strong>Lifecycle Role:</strong> Drove the project from <strong>ideation to development</strong>, including the <strong>handover</strong> to the dedicated sustaining team.</li>
+                <li><strong>Change Management:</strong> Conducted comprehensive <strong>training sessions for staff engineers</strong> and senior designers to ensure seamless, company-wide adoption.</li>
+            </ul>
+        </div>
+
+        <div class="space-y-4">
+            <h4 class="text-xl font-semibold">Technical Solution & Process Innovation</h4>
+            <ul class="list-disc list-outside space-y-2 pl-5">
+                <li>Architected a robust automation framework that standardized validation processes across multiple server product lines.</li>
+                <li><strong>Accelerated product cycles by 6 months</strong> by eliminating the manual design review bottleneck.</li>
+                <li>The solution was built using core infrastructure scripting tools, prioritizing reliability and zero maintenance cost.</li>
+            </ul>
+        </div>
+    </div>
+</div>
             </section>
 
             <!-- Core Competencies / Skills Page -->
