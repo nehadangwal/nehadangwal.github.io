@@ -3,113 +3,160 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Neha Dangwal | Staff Architect & Engineering Leader</title>
+  <title>Neha Dangwal | Engineering Leader & Staff Architect</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     body { font-family: 'Inter', -apple-system, sans-serif; }
-    .staff-border { border-left: 4px solid #2563eb; }
-    .em-border { border-left: 4px solid #0891b2; }
-    .tag { background: #f1f5f9; color: #475569; padding: 4px 10px; border-radius: 6px; font-size: 0.8rem; font-weight: 600; }
+    .em-gradient { background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); }
+    .stat-card { border-top: 4px solid #0891b2; transition: transform 0.2s; }
+    .stat-card:hover { transform: translateY(-5px); }
   </style>
 </head>
-<body class="bg-white text-slate-900 leading-relaxed">
+<body class="bg-slate-50 text-slate-900 leading-relaxed">
 
-  <div class="max-w-4xl mx-auto px-6 py-16">
-    <header class="mb-16">
-      <h1 class="text-5xl font-extrabold tracking-tight mb-2">Neha Dangwal</h1>
-      <p class="text-xl text-slate-600 mb-6">Staff Platform Architect • Engineering Manager • AI/ML Infrastructure</p>
-      <div class="flex flex-wrap gap-4 text-sm font-medium text-blue-600">
-        <a href="mailto:dangwalneha2013@gmail.com" class="hover:underline">Email</a>
-        <a href="https://linkedin.com/in/nehadangwal" class="hover:underline">LinkedIn</a>
-        <a href="https://github.com/nehadangwal" class="hover:underline">GitHub</a>
-      </div>
-    </header>
-
-    <section class="mb-16">
-      <h2 class="text-xs uppercase tracking-widest font-bold text-slate-400 mb-4">Executive Summary</h2>
-      <p class="text-xl text-slate-700">
-        Force-multiplier with 9+ years of experience leading <strong>AI/ML infrastructure</strong> and high-scale platforms. 
-        Delivered <strong>$17M+ in business value</strong> by architecting systems for 250+ engineers. 
-        Expert at bridging the gap between deep systems engineering (C/C++, K8s) and organizational leadership.
-      </p>
-    </section>
-
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 mb-16">
-      <div class="staff-border pl-6">
-        <h3 class="text-lg font-bold mb-4 uppercase tracking-tight text-blue-700">Staff Architecture</h3>
-        <p class="text-sm text-slate-600 mb-4 italic">"Solving for p99 latencies and system-wide reliability."</p>
-        <ul class="text-sm space-y-2 text-slate-700">
-          <li>• Distributed Systems Architecture</li>
-          <li>• GPU Cloud & K8s Orchestration</li>
-          <li>• Low-latency C++/Python APIs</li>
-          <li>• MLOps & Observability Pipelines</li>
-        </ul>
-      </div>
-      <div class="em-border pl-6">
-        <h3 class="text-lg font-bold mb-4 uppercase tracking-tight text-cyan-700">Engineering Leadership</h3>
-        <p class="text-sm text-slate-600 mb-4 italic">"Scaling teams, culture, and delivery velocity."</p>
-        <ul class="text-sm space-y-2 text-slate-700">
-          <li>• Mentoring 12+ Engineers (3+ Senior Promos)</li>
-          <li>• Strategic Roadmapping & OKRs</li>
-          <li>• FinOps & ROI-driven Infrastructure</li>
-          <li>• Cross-functional Stakeholder Mgmt</li>
-        </ul>
+  <header class="em-gradient text-white pt-20 pb-28 px-6">
+    <div class="max-w-5xl mx-auto">
+      <div class="flex flex-col md:flex-row justify-between items-start gap-8">
+        <div class="flex-1">
+          <h1 class="text-5xl font-extrabold tracking-tight mb-4">Neha Dangwal</h1>
+          <p class="text-2xl text-slate-300 font-light mb-6">
+            Engineering Manager & Staff Architect specializing in <span class="text-cyan-400">AI/ML Infrastructure</span> and <span class="text-cyan-400">Platform Excellence</span>.
+          </p>
+          <div class="flex flex-wrap gap-6 text-sm font-medium">
+            <a href="mailto:dangwalneha2013@gmail.com" class="flex items-center gap-2 hover:text-cyan-400 transition">📧 Email</a>
+            <a href="https://linkedin.com/in/nehadangwal" class="flex items-center gap-2 hover:text-cyan-400 transition">🔗 LinkedIn</a>
+          </div>
+        </div>
+        <div class="bg-white/10 p-6 rounded-2xl border border-white/20 backdrop-blur-sm max-w-sm">
+          <p class="text-sm italic text-slate-200">
+            "I lead by aligning technical sovereignty with business objectives—building high-performing teams that scale both people and platforms."
+          </p>
+        </div>
       </div>
     </div>
+  </header>
 
-    <section class="bg-slate-50 rounded-2xl p-8 mb-16 border border-slate-100">
-      <h2 class="text-2xl font-bold mb-4">Feature: The Agentic Golden Path</h2>
-      <p class="text-slate-700 mb-6">
-        At Cisco, I architected the <strong>"Agentic Golden Path"</strong>—a unified platform standard that abstracted the complexity of LLM deployment for 80+ microservices. 
-        By providing pre-configured, governed templates for RAG pipelines and Agentic workflows, we reduced the time-to-market for AI features from months to weeks.
-      </p>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm">
-        <div class="bg-white p-4 rounded-lg shadow-sm">
-          <p class="font-bold text-blue-600 mb-1">Staff Engineering Outcome</p>
-          Integrated LLM-based PR analysis and automated security scanning, increasing developer velocity by 30%.
+  <main class="max-w-5xl mx-auto px-6 -mt-16">
+    
+    <section class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-20">
+      <div class="bg-white p-6 rounded-xl shadow-xl stat-card text-center">
+        <p class="text-3xl font-bold text-cyan-700">$17M+</p>
+        <p class="text-xs font-bold text-slate-500 uppercase mt-2">Cumulative ROI Delivered</p>
+      </div>
+      <div class="bg-white p-6 rounded-xl shadow-xl stat-card text-center">
+        <p class="text-3xl font-bold text-cyan-700">250+</p>
+        <p class="text-xs font-bold text-slate-500 uppercase mt-2">Engineers Led/Impacted</p>
+      </div>
+      <div class="bg-white p-6 rounded-xl shadow-xl stat-card text-center">
+        <p class="text-3xl font-bold text-cyan-700">99.9%</p>
+        <p class="text-xs font-bold text-slate-500 uppercase mt-2">Platform Availability</p>
+      </div>
+      <div class="bg-white p-6 rounded-xl shadow-xl stat-card text-center">
+        <p class="text-3xl font-bold text-cyan-700">12+</p>
+        <p class="text-xs font-bold text-slate-500 uppercase mt-2">Engineers Mentored</p>
+      </div>
+    </section>
+
+    <section class="grid grid-cols-1 md:grid-cols-2 gap-12 mb-20">
+      <div>
+        <h2 class="text-2xl font-bold text-slate-800 mb-6 flex items-center gap-2">
+          <span class="p-2 bg-cyan-100 rounded-lg">🏗️</span> Engineering Culture & Strategy
+        </h2>
+        <div class="space-y-6">
+          <div class="border-l-4 border-cyan-200 pl-4">
+            <h3 class="font-bold text-slate-900">Architectural Governance</h3>
+            <p class="text-slate-600 text-sm">Established organizational "Architectural Review" processes that unified standards across 80+ microservices, reducing production incidents by 30% through early-stage design scrutiny.</p>
+          </div>
+          <div class="border-l-4 border-cyan-200 pl-4">
+            <h3 class="font-bold text-slate-900">Hiring & Retention</h3>
+            <p class="text-slate-600 text-sm">Deeply committed to "promoting from within." Mentored 12+ engineers on system design; successfully championed 3+ senior-level promotions.</p>
+          </div>
         </div>
-        <div class="bg-white p-4 rounded-lg shadow-sm">
-          <p class="font-bold text-cyan-600 mb-1">Leadership Outcome</p>
-          Secured $15.4M in annual productivity gains by aligning internal AI strategy with corporate ROI goals.
+      </div>
+      <div>
+        <h2 class="text-2xl font-bold text-slate-800 mb-6 flex items-center gap-2">
+          <span class="p-2 bg-cyan-100 rounded-lg">📈</span> Operational & Fiscal Excellence
+        </h2>
+        <div class="space-y-6">
+          <div class="border-l-4 border-cyan-200 pl-4">
+            <h3 class="font-bold text-slate-900">FinOps & Cost Management</h3>
+            <p class="text-slate-600 text-sm">Operate engineering as a business owner. Identified $17M+ in value by optimizing GPU/Cloud resources and accelerating time-to-market by 6 months.</p>
+          </div>
+          <div class="border-l-4 border-cyan-200 pl-4">
+            <h3 class="font-bold text-slate-900">99.9% SLA Performance</h3>
+            <p class="text-slate-600 text-sm">Directed high-scale distributed systems reliability, maintaining a strict 99.9% uptime SLA for critical enterprise security and AI platforms.</p>
+          </div>
         </div>
       </div>
     </section>
 
-    <section class="mb-16">
-      <h2 class="text-xs uppercase tracking-widest font-bold text-slate-400 mb-8">Selected Open Source Work</h2>
+    <section class="bg-white rounded-3xl p-10 border border-slate-200 shadow-sm mb-20">
+        <div class="flex items-center gap-3 mb-6">
+            <span class="bg-blue-600 text-white text-xs font-bold px-3 py-1 rounded-full uppercase">Strategic Case Study</span>
+            <h2 class="text-3xl font-bold">The Agentic Golden Path</h2>
+        </div>
+        <p class="text-lg text-slate-600 mb-8">
+            At Cisco, I faced an organizational challenge: 250+ engineers needed to deploy LLM features, but lacked a unified framework for security and cost control. 
+            I architected the <strong>"Agentic Golden Path,"</strong> a set of governed templates and platforms that standardized AI deployment.
+        </p>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="bg-slate-50 p-5 rounded-xl">
+                <p class="text-blue-600 font-bold text-xs uppercase mb-2">Technical Leadership</p>
+                <p class="text-sm text-slate-700">Abstracted LLM complexity with RAG-ready templates and built-in RBAC.</p>
+            </div>
+            <div class="bg-slate-50 p-5 rounded-xl">
+                <p class="text-blue-600 font-bold text-xs uppercase mb-2">Team Velocity</p>
+                <p class="text-sm text-slate-700">Accelerated development velocity by 30% through automated AI-powered PR analysis.</p>
+            </div>
+            <div class="bg-slate-50 p-5 rounded-xl">
+                <p class="text-blue-600 font-bold text-xs uppercase mb-2">Business Outcome</p>
+                <p class="text-sm text-slate-700">Delivered $15.4M in annual productivity gains via modern CI/CD patterns.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="mb-20">
+      <h2 class="text-2xl font-bold text-slate-800 mb-10">Hands-on Technical Sovereignty</h2>
       
-      <div class="space-y-12">
-        <div class="group">
-          <div class="flex justify-between items-center mb-2">
-            <h3 class="text-xl font-bold group-hover:text-blue-600 transition">TrainOps Observatory</h3>
-            <a href="https://github.com/nehadangwal/TrainOps_Observatory" class="text-sm font-bold text-blue-600">View Source ↗</a>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <a href="https://github.com/nehadangwal/TrainOps_Observatory" class="block bg-white p-8 rounded-2xl border border-slate-200 hover:border-cyan-400 transition shadow-sm group">
+          <div class="flex justify-between items-start mb-4">
+            <h3 class="text-xl font-bold group-hover:text-cyan-700">TrainOps Observatory</h3>
+            <span class="text-xs font-bold text-slate-400">GITHUB ↗</span>
           </div>
-          <p class="text-slate-600 mb-4 leading-relaxed">A specialized observability engine for ML training. Solves the "black box" problem of GPU utilization by ingesting 10,000+ metrics/sec to identify bottlenecks.</p>
-          <div class="flex flex-wrap gap-2">
-            <span class="tag">Python</span><span class="tag">TimescaleDB</span><span class="tag">GPU Telemetry</span><span class="tag">FinOps</span>
+          <p class="text-slate-600 text-sm mb-6 leading-relaxed">A specialized telemetry engine for ML Training. Ingests 10k+ metrics/sec to identify GPU bottlenecks and infrastructure waste. A core demonstration of **FinOps-driven engineering**.</p>
+          <div class="flex gap-2">
+            <span class="bg-slate-100 px-3 py-1 rounded text-[10px] font-bold text-slate-500 uppercase">MLOps</span>
+            <span class="bg-slate-100 px-3 py-1 rounded text-[10px] font-bold text-slate-500 uppercase">TimescaleDB</span>
           </div>
-        </div>
-
-        <div class="group">
-          <div class="flex justify-between items-center mb-2">
-            <h3 class="text-xl font-bold group-hover:text-blue-600 transition">Cybersecurity Log Analyzer</h3>
-            <a href="https://github.com/nehadangwal/cybersecurity-log-analyzer" class="text-sm font-bold text-blue-600">View Source ↗</a>
-          </div>
-          <p class="text-slate-600 mb-4 leading-relaxed">High-throughput anomaly detection system. Architected for sub-100ms latency, utilizing Isolation Forests for multivariate threat detection in enterprise logs.</p>
-          <div class="flex flex-wrap gap-2">
-            <span class="tag">Scikit-Learn</span><span class="tag">Next.js</span><span class="tag">FastAPI</span><span class="tag">Docker</span>
-          </div>
-        </div>
+        </a>
+        <a href="https://github.com/nehadangwal/cybersecurity-log-analyzer" class="block bg-white p-8 rounded-2xl border border-slate-200 hover:border-cyan-400 transition shadow-sm group">
+            <div class="flex justify-between items-start mb-4">
+              <h3 class="text-xl font-bold group-hover:text-cyan-700">Security Log Analyzer</h3>
+              <span class="text-xs font-bold text-slate-400">GITHUB ↗</span>
+            </div>
+            <p class="text-slate-600 text-sm mb-6 leading-relaxed">Real-time anomaly detection processing 10k+ logs/sec with sub-100ms latency. Highlighting expertise in **High-Scale Distributed Systems** and reliable data pipelines.</p>
+            <div class="flex gap-2">
+              <span class="bg-slate-100 px-3 py-1 rounded text-[10px] font-bold text-slate-500 uppercase">Python</span>
+              <span class="bg-slate-100 px-3 py-1 rounded text-[10px] font-bold text-slate-500 uppercase">Scikit-Learn</span>
+            </div>
+          </a>
       </div>
     </section>
 
-    <footer class="pt-12 border-t border-slate-200 text-center">
-      <p class="text-slate-500 italic text-sm mb-4">
-        "High-performing teams are built on clear technical direction and a culture of radical mentorship."
-      </p>
-      <p class="font-bold text-slate-900">Neha Dangwal • 2024</p>
-    </footer>
-  </div>
+  </main>
+
+  <footer class="bg-white border-t border-slate-200 py-16">
+    <div class="max-w-5xl mx-auto px-6 text-center">
+      <p class="text-slate-400 text-sm italic mb-6">"Scaling people, culture, and platforms for the AI era."</p>
+      <div class="flex justify-center gap-8 mb-8">
+        <a href="https://linkedin.com/in/nehadangwal" class="text-slate-600 hover:text-cyan-700 font-semibold">LinkedIn</a>
+        <a href="https://github.com/nehadangwal" class="text-slate-600 hover:text-cyan-700 font-semibold">GitHub</a>
+        <a href="mailto:dangwalneha2013@gmail.com" class="text-slate-600 hover:text-cyan-700 font-semibold">Contact</a>
+      </div>
+      <p class="text-slate-300 text-xs">© 2024 Neha Dangwal. Built for Engineering Leadership.</p>
+    </div>
+  </footer>
 
 </body>
 </html>
