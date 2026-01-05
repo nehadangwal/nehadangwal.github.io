@@ -1,195 +1,218 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Neha Dangwal | Platform Engineering Leader</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
-        body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
-        .nav-link.active { border-left: 4px solid #0369a1; background-color: #f0f9ff; color: #0c4a6e; font-weight: 600; }
-        .page-section { display: none; }
-        .page-section.active { display: block; animation: fadeIn 0.5s ease-in-out; }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-        .staff-highlight { border-left: 4px solid #0369a1; }
-        .em-highlight { border-left: 4px solid #0891b2; }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Neha Dangwal | Staff Platform Engineer & Engineering Leader</title>
+  <meta name="description" content="Staff Platform Engineer and Engineering Leader specializing in AI/ML Infrastructure, Developer Platforms, and Distributed Systems.">
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f8f9fb;
+      color: #1f2937;
+      line-height: 1.6;
+    }
+    a {
+      color: #2563eb;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    .container {
+      max-width: 1000px;
+      margin: auto;
+      padding: 48px 24px;
+      background: #ffffff;
+    }
+    header {
+      margin-bottom: 48px;
+    }
+    h1 {
+      font-size: 40px;
+      margin-bottom: 8px;
+    }
+    h2 {
+      font-size: 28px;
+      margin-top: 56px;
+      margin-bottom: 16px;
+      border-bottom: 2px solid #e5e7eb;
+      padding-bottom: 6px;
+    }
+    h3 {
+      font-size: 20px;
+      margin-bottom: 6px;
+    }
+    .subtitle {
+      font-size: 18px;
+      color: #374151;
+    }
+    .meta {
+      margin-top: 12px;
+      color: #4b5563;
+      font-size: 15px;
+    }
+    ul {
+      padding-left: 20px;
+    }
+    li {
+      margin-bottom: 8px;
+    }
+    .tag {
+      display: inline-block;
+      background: #eef2ff;
+      color: #1e3a8a;
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-size: 13px;
+      margin: 4px 6px 4px 0;
+    }
+    .section {
+      margin-bottom: 48px;
+    }
+    footer {
+      margin-top: 64px;
+      padding-top: 24px;
+      border-top: 1px solid #e5e7eb;
+      font-size: 14px;
+      color: #6b7280;
+    }
+  </style>
 </head>
-<body class="bg-slate-50 text-slate-900">
 
-    <div class="flex flex-col md:flex-row min-h-screen">
-        <aside class="w-full md:w-72 bg-white shadow-xl md:sticky md:top-0 md:h-screen p-8 z-10 flex flex-col justify-between">
-            <div>
-                <div class="mb-10">
-                    <h1 class="text-2xl font-bold text-sky-900 leading-tight">Neha Dangwal</h1>
-                    <p class="text-sm font-medium text-sky-600 mt-2 uppercase tracking-widest">Platform Engineering Leader</p>
-                    <div class="mt-4 flex flex-wrap gap-2">
-                        <span class="text-[10px] bg-sky-100 text-sky-700 px-2 py-1 rounded font-bold">STAFF ENGINEER</span>
-                        <span class="text-[10px] bg-cyan-100 text-cyan-700 px-2 py-1 rounded font-bold">ENGINEERING MANAGER</span>
-                    </div>
-                </div>
+<body>
+  <div class="container">
 
-                <nav class="space-y-1" id="main-nav">
-                    <button onclick="showPage('home')" class="nav-link w-full text-left p-3 rounded-r-lg active" data-page="home">Executive Brief</button>
-                    <button onclick="showPage('impact')" class="nav-link w-full text-left p-3 rounded-r-lg" data-page="impact">Dual-Track Impact</button>
-                    <button onclick="showPage('projects')" class="nav-link w-full text-left p-3 rounded-r-lg" data-page="projects">Strategic Initiatives</button>
-                    <button onclick="showPage('skills')" class="nav-link w-full text-left p-3 rounded-r-lg" data-page="skills">Skill Matrix</button>
-                </nav>
-            </div>
+    <!-- HEADER -->
+    <header>
+      <h1>Neha Dangwal</h1>
+      <div class="subtitle">Staff Platform Engineer • AI/ML Infrastructure • Engineering Leadership</div>
+      <div class="meta">
+        San Jose, CA ·
+        <a href="mailto:dangwalneha2013@gmail.com">dangwalneha2013@gmail.com</a> ·
+        <a href="https://linkedin.com/in/nehadangwal" target="_blank">LinkedIn</a> ·
+        <a href="https://nehadangwal.github.io" target="_blank">Portfolio</a>
+      </div>
+    </header>
 
-            <div class="text-xs text-slate-400 space-y-4">
-                <p>📍 San Jose, CA</p>
-                <div class="flex flex-col gap-2">
-                    <a href="mailto:dangwalneha2013@gmail.com" class="hover:text-sky-600 transition">Email</a>
-                    <a href="https://linkedin.com/in/nehadangwal" class="hover:text-sky-600 transition">LinkedIn</a>
-                    <a href="https://github.com/nehadangwal" class="hover:text-sky-600 transition">GitHub</a>
-                </div>
-            </div>
-        </aside>
+    <!-- SUMMARY -->
+    <section class="section">
+      <h2>Professional Summary</h2>
+      <p>
+        Staff Platform Engineer and Engineering Leader with 9+ years of experience building
+        AI/ML infrastructure, developer platforms, and high-scale distributed systems.
+        Architected platforms supporting 250+ engineers and 80+ microservices, delivering
+        <strong>$17M+ in cumulative business value</strong>. Known for translating deep technical
+        strategy into measurable business impact while mentoring engineers and scaling teams.
+      </p>
+    </section>
 
-        <main class="flex-1 p-6 md:p-16 max-w-5xl">
-            
-            <section id="page-home" class="page-section active space-y-10">
-                <header>
-                    <h2 class="text-4xl font-extrabold text-slate-900 mb-6">Bridging Architecture & People</h2>
-                    <p class="text-xl text-slate-600 leading-relaxed max-w-3xl">
-                        I am a <strong>Staff-level Engineer</strong> with the organizational mindset of an <strong>Engineering Manager</strong>. Over the last 9 years, I’ve specialized in architecting AI/ML infrastructure while scaling the engineering cultures that support them. I don't just build systems; I build the teams that move them forward.
-                    </p>
-                </header>
+    <!-- SKILLS -->
+    <section class="section">
+      <h2>Technical Expertise</h2>
 
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-100">
-                        <h3 class="text-sky-700 font-bold mb-4 flex items-center gap-2">
-                            <span>🛠️</span> STAFF SPECIALIZATION
-                        </h3>
-                        <ul class="space-y-3 text-slate-600">
-                            <li>• Distributed GPU Orchestration & K8s</li>
-                            <li>• Zero-Overhead Observability Systems</li>
-                            <li>• Multi-Agent AI Architectures (CrewAI)</li>
-                        </ul>
-                    </div>
-                    <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-100">
-                        <h3 class="text-cyan-700 font-bold mb-4 flex items-center gap-2">
-                            <span>🤝</span> EM SPECIALIZATION
-                        </h3>
-                        <ul class="space-y-3 text-slate-600">
-                            <li>• Mentored 12+ Engineers to Senior levels</li>
-                            <li>• Org-wide Technical Governance (250+ Devs)</li>
-                            <li>• Delivering $17M+ cumulative business value</li>
-                        </ul>
-                    </div>
-                </div>
-            </section>
+      <h3>AI / ML Infrastructure</h3>
+      <span class="tag">LLMs (GPT-4)</span>
+      <span class="tag">MLOps</span>
+      <span class="tag">RAG Pipelines</span>
+      <span class="tag">Vector Databases</span>
+      <span class="tag">CrewAI</span>
+      <span class="tag">ML Observability</span>
 
-            <section id="page-impact" class="page-section space-y-10">
-                <h2 class="text-3xl font-bold border-b pb-4">Quantitative Impact</h2>
-                
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    <div class="bg-sky-900 text-white p-6 rounded-xl">
-                        <p class="text-3xl font-bold">$17M+</p>
-                        <p class="text-xs opacity-80 uppercase mt-2">Business Value Delivered</p>
-                    </div>
-                    <div class="bg-slate-800 text-white p-6 rounded-xl">
-                        <p class="text-3xl font-bold">250+</p>
-                        <p class="text-xs opacity-80 uppercase mt-2">Engineers Managed via Platform</p>
-                    </div>
-                    <div class="bg-cyan-700 text-white p-6 rounded-xl">
-                        <p class="text-3xl font-bold">30%</p>
-                        <p class="text-xs opacity-80 uppercase mt-2">Developer Velocity Boost</p>
-                    </div>
-                </div>
+      <h3>Platform & Cloud</h3>
+      <span class="tag">Kubernetes</span>
+      <span class="tag">AWS</span>
+      <span class="tag">Docker</span>
+      <span class="tag">Terraform</span>
+      <span class="tag">Distributed Systems</span>
 
-                <div class="space-y-12 mt-12">
-                    <div>
-                        <h3 class="text-xl font-bold text-slate-800 mb-6">Case Study: Cisco Platform Evolution</h3>
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                            <div class="staff-highlight p-4 bg-white shadow-sm">
-                                <span class="text-[10px] font-bold text-sky-600">STAFF LENS</span>
-                                <p class="text-sm mt-2 text-slate-600">Architected the "Agentic Golden Path"—a K8s-native platform for LLM microservices with integrated RBAC and security scanning at 10k logs/sec.</p>
-                            </div>
-                            <div class="em-highlight p-4 bg-white shadow-sm">
-                                <span class="text-[10px] font-bold text-cyan-600">EM LENS</span>
-                                <p class="text-sm mt-2 text-slate-600">Directed technical roadmaps across 5+ teams. Established architectural review processes that reduced build failures by 16+ daily incidents.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
+      <h3>Software & Data</h3>
+      <span class="tag">Python</span>
+      <span class="tag">SQL</span>
+      <span class="tag">FastAPI</span>
+      <span class="tag">Flask</span>
+      <span class="tag">PostgreSQL</span>
+      <span class="tag">TimescaleDB</span>
 
-            <section id="page-projects" class="page-section space-y-10">
-                <h2 class="text-3xl font-bold">Strategic Technical Projects</h2>
-                
-                <div class="space-y-8">
-                    <div class="bg-white p-8 rounded-2xl border border-slate-200">
-                        <div class="flex justify-between items-start">
-                            <h3 class="text-2xl font-bold text-slate-800">TrainOps Observatory</h3>
-                            <span class="bg-green-100 text-green-700 text-xs px-3 py-1 rounded-full font-bold">Deployed</span>
-                        </div>
-                        <p class="mt-4 text-slate-600">A low-overhead MLOps observability engine identifying GPU bottlenecks.</p>
-                        
-                        <div class="mt-6 flex flex-wrap gap-4">
-                            <div class="flex-1 min-w-[200px]">
-                                <p class="text-xs font-bold text-slate-400 uppercase">Technical Contribution</p>
-                                <p class="text-sm text-slate-700 italic">Built a TimescaleDB & Flask backend with 100ms p99 latency.</p>
-                            </div>
-                            <div class="flex-1 min-w-[200px]">
-                                <p class="text-xs font-bold text-slate-400 uppercase">Leadership Contribution</p>
-                                <p class="text-sm text-slate-700 italic">Reduced cloud spend by 42% through data-driven capacity planning.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-            </section>
+      <h3>DevOps & Reliability</h3>
+      <span class="tag">CI/CD</span>
+      <span class="tag">Prometheus</span>
+      <span class="tag">Grafana</span>
+      <span class="tag">GitOps</span>
+      <span class="tag">SRE</span>
+    </section>
 
-            <section id="page-skills" class="page-section space-y-10">
-                <h2 class="text-3xl font-bold">The Leadership & Tech Matrix</h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
-                    <div>
-                        <h4 class="text-lg font-bold text-sky-800 mb-4 uppercase tracking-wider">Engineering Depth</h4>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="px-3 py-2 bg-slate-200 rounded text-sm">Kubernetes / EKS</span>
-                            <span class="px-3 py-2 bg-slate-200 rounded text-sm">Python / FastAPI</span>
-                            <span class="px-3 py-2 bg-slate-200 rounded text-sm">LLM Integration (GPT-4)</span>
-                            <span class="px-3 py-2 bg-slate-200 rounded text-sm">Distributed Systems</span>
-                            <span class="px-3 py-2 bg-slate-200 rounded text-sm">Prometheus/Grafana</span>
-                        </div>
-                    </div>
-                    <div>
-                        <h4 class="text-lg font-bold text-cyan-800 mb-4 uppercase tracking-wider">Management Breadth</h4>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="px-3 py-2 bg-slate-200 rounded text-sm">Stakeholder Management</span>
-                            <span class="px-3 py-2 bg-slate-200 rounded text-sm">Strategic Roadmapping</span>
-                            <span class="px-3 py-2 bg-slate-200 rounded text-sm">Engineering Mentorship</span>
-                            <span class="px-3 py-2 bg-slate-200 rounded text-sm">Change Management</span>
-                            <span class="px-3 py-2 bg-slate-200 rounded text-sm">Agile Transformation</span>
-                        </div>
-                    </div>
-                </div>
-            </section>
+    <!-- EXPERIENCE -->
+    <section class="section">
+      <h2>Professional Experience</h2>
 
-        </main>
-    </div>
+      <h3>Cisco Systems — Senior Software Engineer & Platform Architect</h3>
+      <p><em>San Jose, CA · July 2021 – February 2024</em></p>
+      <ul>
+        <li>Led platform architecture serving 250+ engineers across 80+ microservices with 99.9% uptime.</li>
+        <li>Designed an <strong>Agentic Golden Path</strong> enabling secure, governed LLM-backed services.</li>
+        <li>Integrated LLMs into CI/CD (PR analysis, code reviews), improving development velocity by 30%.</li>
+        <li>Delivered $15.4M+ in annual productivity gains via distributed caching and CI optimizations.</li>
+        <li>Mentored 12+ engineers; supported multiple senior promotions.</li>
+      </ul>
 
-    <script>
-        function showPage(pageId) {
-            // Hide all pages
-            document.querySelectorAll('.page-section').forEach(page => {
-                page.classList.remove('active');
-            });
-            // Show target page
-            document.getElementById('page-' + pageId).classList.add('active');
-            
-            // Update nav active state
-            document.querySelectorAll('.nav-link').forEach(link => {
-                link.classList.remove('active');
-                if(link.getAttribute('data-page') === pageId) {
-                    link.classList.add('active');
-                }
-            });
-        }
-    </script>
+      <h3>Dell EMC — Senior Firmware Engineer & Technical Lead</h3>
+      <p><em>Austin, TX · February 2016 – June 2021</em></p>
+      <ul>
+        <li>Architected Dell’s first on-prem Kubernetes-based GPU cloud.</li>
+        <li>Built automation reducing a 3-month design review process to 10 seconds.</li>
+        <li>Improved server uptime by 44% and throughput by 40% through performance engineering.</li>
+        <li>Led firmware engineering best practices across global vendor teams.</li>
+      </ul>
+    </section>
+
+    <!-- PROJECTS -->
+    <section class="section">
+      <h2>Selected Projects</h2>
+
+      <h3>TrainOps Observatory — ML Training & GPU Observability</h3>
+      <ul>
+        <li>Built real-time bottleneck detection across GPU/CPU/IO telemetry.</li>
+        <li>Identified 42% potential training cost savings via cost attribution.</li>
+        <li>Handled 10,000+ metrics/sec with zero training performance impact.</li>
+      </ul>
+
+      <h3>Agentic Developer Platform</h3>
+      <ul>
+        <li>Designed multi-agent workflows using GPT-4 and CrewAI.</li>
+        <li>Reduced routine developer workload by 50%.</li>
+        <li>Integrated with enterprise CI/CD via FastAPI webhooks.</li>
+      </ul>
+
+      <h3>AI-Powered Cybersecurity Analyzer</h3>
+      <ul>
+        <li>Real-time anomaly detection processing 10,000+ logs/sec.</li>
+        <li>Sub-100ms p99 latency using containerized deployment.</li>
+      </ul>
+    </section>
+
+    <!-- EDUCATION -->
+    <section class="section">
+      <h2>Education & Certifications</h2>
+      <ul>
+        <li>M.S. Computer Science — SUNY Binghamton</li>
+        <li>B.Tech Electrical & Electronics Engineering — Uttarakhand University</li>
+        <li>Generative AI for Software Development</li>
+        <li>Machine Learning Engineering (DeepLearning.AI)</li>
+        <li>Advanced System Design & Architecture</li>
+      </ul>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+      <p>
+        I build high-impact engineering platforms by aligning technical excellence with
+        business outcomes, mentoring engineers, and designing systems that scale.
+      </p>
+    </footer>
+
+  </div>
 </body>
 </html>
