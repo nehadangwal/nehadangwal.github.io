@@ -3,225 +3,878 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Neha Dangwal | AI Governance Architect & Consultant</title>
-  <script src="https://cdn.tailwindcss.com"></script>
+  <title>Neha Dangwal · AI Inference Governance</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
   <style>
-    body { font-family: 'Inter', -apple-system, sans-serif; }
-    .em-gradient { background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); }
-    .stat-card { border-top: 4px solid #0891b2; transition: transform 0.2s; }
-    .stat-card:hover { transform: translateY(-5px); }
-    .patent-badge { background: linear-gradient(90deg, #164e63 0%, #0891b2 100%); }
+    :root {
+      --ink: #0c1117;
+      --ink-muted: #4a5568;
+      --ink-faint: #8a97a8;
+      --surface: #f8f9fb;
+      --white: #ffffff;
+      --accent: #0e7490;
+      --accent-light: #cffafe;
+      --accent-mid: #0891b2;
+      --danger: #dc2626;
+      --border: #e2e8f0;
+      --border-strong: #cbd5e1;
+      --serif: 'DM Serif Display', Georgia, serif;
+      --sans: 'DM Sans', system-ui, sans-serif;
+      --mono: 'DM Mono', monospace;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--sans);
+      background: var(--surface);
+      color: var(--ink);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(248,249,251,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 2rem;
+    }
+    .nav-inner {
+      max-width: 1040px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 56px;
+    }
+    .nav-logo {
+      font-family: var(--mono);
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: var(--accent);
+      letter-spacing: 0.05em;
+    }
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: var(--ink-muted);
+      transition: color 0.15s;
+    }
+    .nav-links a:hover { color: var(--accent); }
+    .nav-cta {
+      background: var(--accent);
+      color: white !important;
+      padding: 0.4rem 1rem;
+      border-radius: 6px;
+      font-size: 0.78rem !important;
+      font-weight: 600 !important;
+      transition: background 0.15s !important;
+    }
+    .nav-cta:hover { background: #0e6383 !important; color: white !important; }
+
+    /* ── HERO ── */
+    .hero {
+      background: var(--ink);
+      color: white;
+      padding: 6rem 2rem 5rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -40%;
+      right: -10%;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(8,145,178,0.12) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-inner {
+      max-width: 1040px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 4rem;
+      align-items: start;
+    }
+    .hero-eyebrow {
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      color: var(--accent-mid);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 1.25rem;
+    }
+    .hero-name {
+      font-family: var(--serif);
+      font-size: clamp(2.5rem, 5vw, 3.75rem);
+      font-weight: 400;
+      line-height: 1.1;
+      margin-bottom: 1.25rem;
+      letter-spacing: -0.01em;
+    }
+    .hero-name em {
+      font-style: italic;
+      color: rgba(255,255,255,0.6);
+    }
+    .hero-tagline {
+      font-size: 1.1rem;
+      color: rgba(255,255,255,0.72);
+      font-weight: 300;
+      max-width: 540px;
+      margin-bottom: 0.75rem;
+      line-height: 1.7;
+    }
+    .hero-tagline strong {
+      color: white;
+      font-weight: 500;
+    }
+    .hero-sub {
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.42);
+      margin-bottom: 2rem;
+      font-style: italic;
+    }
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-bottom: 2.5rem;
+    }
+    .btn-primary {
+      background: var(--accent-mid);
+      color: white;
+      padding: 0.75rem 1.5rem;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 0.85rem;
+      transition: background 0.15s, transform 0.15s;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+    .btn-primary:hover { background: #0e6383; transform: translateY(-1px); }
+    .btn-ghost {
+      border: 1px solid rgba(255,255,255,0.2);
+      color: rgba(255,255,255,0.8);
+      padding: 0.75rem 1.5rem;
+      border-radius: 8px;
+      font-weight: 500;
+      font-size: 0.85rem;
+      transition: border-color 0.15s, color 0.15s;
+    }
+    .btn-ghost:hover { border-color: var(--accent-mid); color: white; }
+    .hero-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+    }
+    .hero-links a {
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.45);
+      font-weight: 500;
+      transition: color 0.15s;
+      letter-spacing: 0.02em;
+    }
+    .hero-links a:hover { color: var(--accent-mid); }
+    .hero-badge-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      padding-top: 0.5rem;
+    }
+    .hero-badge {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 10px;
+      padding: 1rem 1.25rem;
+      min-width: 200px;
+    }
+    .hero-badge-value {
+      font-family: var(--serif);
+      font-size: 2rem;
+      color: var(--accent-mid);
+      line-height: 1;
+      margin-bottom: 0.25rem;
+    }
+    .hero-badge-label {
+      font-size: 0.68rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: rgba(255,255,255,0.4);
+      font-weight: 500;
+    }
+
+    /* ── MAIN ── */
+    main {
+      max-width: 1040px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    /* ── STATS STRIP ── */
+    .stats-strip {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      overflow: hidden;
+      margin: 3rem 0;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+    }
+    .stat-cell {
+      background: white;
+      padding: 1.5rem 1.25rem;
+      text-align: center;
+    }
+    .stat-cell-value {
+      font-family: var(--serif);
+      font-size: 1.9rem;
+      color: var(--accent);
+      line-height: 1;
+      margin-bottom: 0.4rem;
+    }
+    .stat-cell-label {
+      font-size: 0.68rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--ink-faint);
+      font-weight: 600;
+    }
+    .stat-cell-note {
+      font-size: 0.62rem;
+      color: var(--ink-faint);
+      margin-top: 0.2rem;
+      font-style: italic;
+    }
+
+    /* ── SECTION LABEL ── */
+    .section-label {
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--accent);
+      margin-bottom: 0.6rem;
+    }
+
+    /* ── PRODUCT SECTION ── */
+    .product-section {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 2.5rem;
+      margin-bottom: 1.5rem;
+    }
+    .product-header {
+      display: flex;
+      align-items: flex-start;
+      gap: 1.25rem;
+      margin-bottom: 1.25rem;
+    }
+    .product-icon {
+      width: 48px;
+      height: 48px;
+      background: var(--accent-light);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      flex-shrink: 0;
+    }
+    .product-title {
+      font-family: var(--serif);
+      font-size: 1.8rem;
+      font-weight: 400;
+      line-height: 1.15;
+      margin-bottom: 0.2rem;
+    }
+    .product-subtitle {
+      font-size: 0.78rem;
+      color: var(--ink-faint);
+      font-family: var(--mono);
+      letter-spacing: 0.04em;
+    }
+    .product-story {
+      font-size: 0.95rem;
+      color: var(--ink-muted);
+      line-height: 1.75;
+      margin-bottom: 1.75rem;
+      max-width: 680px;
+      border-left: 3px solid var(--accent-light);
+      padding-left: 1rem;
+    }
+    .product-story strong { color: var(--ink); }
+    .capability-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      margin-bottom: 1.75rem;
+    }
+    .capability-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.1rem;
+    }
+    .capability-name {
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--accent);
+      margin-bottom: 0.4rem;
+      font-weight: 500;
+    }
+    .capability-desc {
+      font-size: 0.8rem;
+      color: var(--ink-muted);
+      line-height: 1.55;
+    }
+    .product-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+    .link-btn {
+      font-size: 0.78rem;
+      font-weight: 600;
+      padding: 0.55rem 1.1rem;
+      border-radius: 7px;
+      border: 1px solid var(--border-strong);
+      color: var(--ink);
+      transition: border-color 0.15s, color 0.15s, background 0.15s;
+    }
+    .link-btn:hover { border-color: var(--accent); color: var(--accent); }
+    .link-btn-dark {
+      background: var(--ink);
+      color: white;
+      border-color: var(--ink);
+    }
+    .link-btn-dark:hover { background: #1e293b; color: white; }
+
+    /* ── DESIGN PARTNER ── */
+    .partner-section {
+      background: var(--ink);
+      color: white;
+      border-radius: 16px;
+      padding: 2.5rem;
+      margin-bottom: 1.5rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: start;
+    }
+    .partner-heading {
+      font-family: var(--serif);
+      font-size: 1.7rem;
+      font-weight: 400;
+      margin-bottom: 0.5rem;
+    }
+    .partner-sub {
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.55);
+      margin-bottom: 1.5rem;
+      line-height: 1.65;
+    }
+    .partner-benefits {
+      list-style: none;
+      margin-bottom: 2rem;
+    }
+    .partner-benefits li {
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.75);
+      padding: 0.5rem 0;
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+      display: flex;
+      align-items: flex-start;
+      gap: 0.6rem;
+      line-height: 1.5;
+    }
+    .partner-benefits li::before {
+      content: '→';
+      color: var(--accent-mid);
+      flex-shrink: 0;
+      font-size: 0.8rem;
+      margin-top: 0.1rem;
+    }
+    .btn-partner {
+      background: var(--accent-mid);
+      color: white;
+      padding: 0.85rem 1.75rem;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 0.85rem;
+      display: inline-block;
+      transition: background 0.15s;
+    }
+    .btn-partner:hover { background: #0e6383; }
+    .focus-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.75rem;
+    }
+    .focus-card {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.09);
+      border-radius: 9px;
+      padding: 0.9rem 1rem;
+    }
+    .focus-name {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: white;
+      margin-bottom: 0.2rem;
+    }
+    .focus-desc {
+      font-size: 0.72rem;
+      color: rgba(255,255,255,0.45);
+      line-height: 1.4;
+    }
+    .partner-label {
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--accent-mid);
+      margin-bottom: 1rem;
+    }
+
+    /* ── TWO COL ── */
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+    .card {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 2rem;
+    }
+    .card-title {
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .card-item {
+      border-left: 2px solid var(--accent-light);
+      padding-left: 0.9rem;
+      margin-bottom: 1.25rem;
+    }
+    .card-item:last-child { margin-bottom: 0; }
+    .card-item h4 {
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+    }
+    .card-item p {
+      font-size: 0.78rem;
+      color: var(--ink-muted);
+      line-height: 1.55;
+    }
+
+    /* ── PROJECT CARDS ── */
+    .projects-section { margin-bottom: 4rem; }
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    .project-card {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.4rem;
+      transition: border-color 0.15s, box-shadow 0.15s;
+      display: flex;
+      flex-direction: column;
+    }
+    .project-card:hover {
+      border-color: var(--accent-mid);
+      box-shadow: 0 4px 16px rgba(8,145,178,0.08);
+    }
+    .project-type {
+      font-family: var(--mono);
+      font-size: 0.62rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--ink-faint);
+      margin-bottom: 0.5rem;
+    }
+    .project-name {
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      color: var(--ink);
+    }
+    .project-card:hover .project-name { color: var(--accent); }
+    .project-desc {
+      font-size: 0.77rem;
+      color: var(--ink-muted);
+      line-height: 1.55;
+      flex: 1;
+      margin-bottom: 1rem;
+    }
+    .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+    }
+    .tag {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      font-size: 0.62rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--ink-faint);
+      padding: 0.2rem 0.5rem;
+      border-radius: 4px;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: white;
+      border-top: 1px solid var(--border);
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+    .footer-quote {
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 1.05rem;
+      color: var(--ink-muted);
+      margin-bottom: 1.75rem;
+    }
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1.75rem;
+      margin-bottom: 1.5rem;
+    }
+    .footer-links a {
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: var(--ink-muted);
+      transition: color 0.15s;
+    }
+    .footer-links a:hover { color: var(--accent); }
+    .footer-legal {
+      font-size: 0.68rem;
+      color: var(--ink-faint);
+      font-family: var(--mono);
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      .hero-inner { grid-template-columns: 1fr; }
+      .hero-badge-stack { flex-direction: row; flex-wrap: wrap; }
+      .stats-strip { grid-template-columns: repeat(2, 1fr); }
+      .capability-grid { grid-template-columns: 1fr; }
+      .partner-section { grid-template-columns: 1fr; gap: 2rem; }
+      .two-col { grid-template-columns: 1fr; }
+      .projects-grid { grid-template-columns: 1fr 1fr; }
+      nav .nav-links { display: none; }
+    }
+    @media (max-width: 480px) {
+      .stats-strip { grid-template-columns: 1fr 1fr; }
+      .projects-grid { grid-template-columns: 1fr; }
+      .focus-grid { grid-template-columns: 1fr; }
+    }
   </style>
 </head>
-<body class="bg-slate-50 text-slate-900 leading-relaxed">
+<body>
 
-  <header class="em-gradient text-white pt-20 pb-28 px-6">
-    <div class="max-w-5xl mx-auto">
-      <div class="flex flex-col md:flex-row justify-between items-start gap-8">
-        <div class="flex-1">
-          <h1 class="text-5xl font-extrabold tracking-tight mb-4">Neha Dangwal</h1>
-          <p class="text-2xl text-slate-300 font-light mb-6">
-            Engineering Leader & Founder specializing in <span class="text-cyan-400">AI Infrastructure</span> and <span class="text-cyan-400">Technical Sovereignty</span>.
-          </p>
-          <div class="flex flex-wrap gap-4 mb-6">
-            <a href="mailto:partners@sentrynodegateway.com?subject=AUDIT" class="bg-cyan-500 hover:bg-cyan-400 text-white font-bold text-sm px-6 py-3 rounded-xl transition shadow-lg">📩 DM "AUDIT" to Start</a>
-            <a href="https://sentrynodegateway.com/roi-calculator/" class="border border-white/20 hover:border-cyan-400 text-white font-semibold text-sm px-6 py-3 rounded-xl transition">🧮 Calculate Your AI Tax</a>
-          </div>
-          <div class="flex flex-wrap gap-6 text-sm font-medium">
-            <a href="mailto:partners@sentrynodegateway.com" class="flex items-center gap-2 hover:text-cyan-400 transition">📧 Email</a>
-            <a href="https://linkedin.com/in/nehadangwal" class="flex items-center gap-2 hover:text-cyan-400 transition">🔗 LinkedIn</a>
-            <a href="https://github.com/nehadangwal" class="flex items-center gap-2 hover:text-cyan-400 transition">💻 GitHub</a>
-            <a href="https://medium.com/@nehadangwal" class="flex items-center gap-2 hover:text-cyan-400 transition">📝 Medium</a>
-            <a href="https://nehadangwal.substack.com" class="flex items-center gap-2 hover:text-cyan-400 transition">📬 Substack</a>
-          </div>
+  <!-- NAV -->
+  <nav>
+    <div class="nav-inner">
+      <span class="nav-logo">nehadangwal.github.io</span>
+      <ul class="nav-links">
+        <li><a href="#product">SentryNode</a></li>
+        <li><a href="#partners">Design Partners</a></li>
+        <li><a href="#experience">Background</a></li>
+        <li><a href="https://sentrynodegateway.com" target="_blank" class="nav-cta">→ Main Site</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="hero-inner">
+      <div>
+        <p class="hero-eyebrow">AI Inference Governance · U.S. Patent Pending #63/982,542</p>
+        <h1 class="hero-name">Neha Dangwal<br><em>Founder & Architect</em></h1>
+        <p class="hero-tagline">
+          I spent nine years watching engineering teams at Cisco and Dell ship brilliant infrastructure. In 2024, I watched those same teams go live with agentic AI — and then receive production bills <strong>nobody could explain.</strong>
+        </p>
+        <p class="hero-sub">Not negligence. Just no governance layer. I built one.</p>
+        <div class="hero-actions">
+          <a href="https://meetings-na2.hubspot.com/neha-dangwal" class="btn-primary">Book a 15-Min Technical Call</a>
+          <a href="https://sentrynodegateway.com/roi-calculator/" class="btn-ghost">Run the Cost Calculator</a>
         </div>
-        <div class="bg-white/10 p-6 rounded-2xl border border-white/20 backdrop-blur-sm max-w-sm">
-          <p class="text-sm italic text-slate-200">
-            "I help engineering teams stop paying the AI Tax — the hidden cost of brilliant infrastructure that scales faster than its governance."
-          </p>
+        <div class="hero-links">
+          <a href="mailto:partners@sentrynodegateway.com">partners@sentrynodegateway.com</a>
+          <a href="https://linkedin.com/in/nehadangwal" target="_blank">LinkedIn</a>
+          <a href="https://github.com/nehadangwal" target="_blank">GitHub</a>
+          <a href="https://medium.com/@nehadangwal" target="_blank">Medium</a>
+          <a href="https://nehadangwal.substack.com" target="_blank">Substack</a>
+        </div>
+      </div>
+      <div class="hero-badge-stack">
+        <div class="hero-badge">
+          <div class="hero-badge-value">77.6%</div>
+          <div class="hero-badge-label">Cost Reduction</div>
+        </div>
+        <div class="hero-badge">
+          <div class="hero-badge-value">98.2%</div>
+          <div class="hero-badge-label">Quality Parity</div>
+        </div>
+        <div class="hero-badge">
+          <div class="hero-badge-value">&lt;40ms</div>
+          <div class="hero-badge-label">Loop Interception</div>
+        </div>
+        <div class="hero-badge">
+          <div class="hero-badge-value">~2.8s</div>
+          <div class="hero-badge-label">Voice E2E (Live)</div>
         </div>
       </div>
     </div>
   </header>
 
-  <main class="max-w-5xl mx-auto px-6 -mt-16">
-    
-    <section class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-20">
-      <div class="bg-white p-6 rounded-xl shadow-xl stat-card text-center">
-        <p class="text-3xl font-bold text-cyan-700">$17M+</p>
-        <p class="text-xs font-bold text-slate-500 uppercase mt-2">Cumulative ROI Delivered</p>
+  <main>
+
+    <!-- STATS STRIP -->
+    <div class="stats-strip">
+      <div class="stat-cell">
+        <div class="stat-cell-value">$17M+</div>
+        <div class="stat-cell-label">Career Infrastructure Impact</div>
+        <div class="stat-cell-note">Cisco & Dell, 9 years</div>
       </div>
-      <div class="bg-white p-6 rounded-xl shadow-xl stat-card text-center text-cyan-600">
-        <p class="text-3xl font-bold">Patent Pending</p>
-        <p class="text-xs font-bold text-slate-500 uppercase mt-2">U.S. App #63/982,542</p>
+      <div class="stat-cell">
+        <div class="stat-cell-value">#63/982,542</div>
+        <div class="stat-cell-label">U.S. Patent Pending</div>
+        <div class="stat-cell-note">Filed Feb 13, 2026</div>
       </div>
-      <div class="bg-white p-6 rounded-xl shadow-xl stat-card text-center">
-        <p class="text-3xl font-bold text-cyan-700">77.6%</p>
-        <p class="text-xs font-bold text-slate-500 uppercase mt-2">AI OpEx Reduction</p>
+      <div class="stat-cell">
+        <div class="stat-cell-value">1,000</div>
+        <div class="stat-cell-label">Request Benchmark</div>
+        <div class="stat-cell-note">Mixed complexity, adversarial</div>
       </div>
-      <div class="bg-white p-6 rounded-xl shadow-xl stat-card text-center">
-        <p class="text-3xl font-bold text-cyan-700">98.2%</p>
-        <p class="text-xs font-bold text-slate-500 uppercase mt-2">Quality Parity Maintained</p>
+      <div class="stat-cell">
+        <div class="stat-cell-value">80%</div>
+        <div class="stat-cell-label">SLM Offload Rate</div>
+        <div class="stat-cell-note">Frontier reserved for reasoning</div>
+      </div>
+    </div>
+
+    <!-- PRODUCT -->
+    <section id="product" class="product-section">
+      <div class="product-header">
+        <div class="product-icon">🛡️</div>
+        <div>
+          <div class="section-label">Founder & Architect · Feb 2026 – Present</div>
+          <h2 class="product-title">SentryNode Gateway</h2>
+          <p class="product-subtitle">Semantic AI Inference Governance & FinOps Platform</p>
+        </div>
+      </div>
+
+      <p class="product-story">
+        Most enterprise teams reach production with agents running on frontier models across every request — classification, routing, summarization — tasks a smaller model handles with identical output at 1/100th the cost. <strong>There's no governance layer. No audit trail. No kill switch.</strong> One runaway agent loop is a board-level incident before anyone looks up. SentryNode is the layer that sits between your application and the model providers — routing semantically, intercepting loops in under 40ms, and signing every response with a cryptographic provenance record.
+      </p>
+
+      <div class="capability-grid">
+        <div class="capability-card">
+          <div class="capability-name">Adaptive Inference Routing</div>
+          <p class="capability-desc">Semantic complexity scoring routes routine tasks to SLMs automatically. Frontier models reserved for tasks that require them. 80% offload rate in production benchmarks.</p>
+        </div>
+        <div class="capability-card">
+          <div class="capability-name">Agentic Circuit Breaker</div>
+          <p class="capability-desc">Patent-pending loop interception at &lt;40ms. Detects recursive agentic drift and fires a hard stop before spend compounds. Not observability — intervention.</p>
+        </div>
+        <div class="capability-card">
+          <div class="capability-name">Sovereign Audit Ledger</div>
+          <p class="capability-desc">HMAC-SHA256 cryptographic signing on every request. Which model ran, at what cost, with what quality guarantee. Tamper-evident. Board-ready.</p>
+        </div>
+        <div class="capability-card">
+          <div class="capability-name">Budget Guardrails</div>
+          <p class="capability-desc">Hard spend caps per tenant, per workflow, per agent. Chargeback reporting for multi-tenant SaaS. No more surprise invoices.</p>
+        </div>
+        <div class="capability-card">
+          <div class="capability-name">Voice Pipeline Governance</div>
+          <p class="capability-desc">STT→LLM→TTS governance layer. ~2.8s E2E latency live in production. Semantic routing across voice turns. PII scrubbing before any third-party API call.</p>
+        </div>
+        <div class="capability-card">
+          <div class="capability-name">Shadow Mode Validation</div>
+          <p class="capability-desc">Teacher/student quality arbitrage runs silently in parallel. 98.2% quality parity confirmed before any routing decision commits.</p>
+        </div>
+      </div>
+
+      <div class="product-links">
+        <a href="https://github.com/nehadangwal/sentrynode-gateway" target="_blank" class="link-btn link-btn-dark">View Repository ↗</a>
+        <a href="https://medium.com/@nehadangwal" target="_blank" class="link-btn">Technical Deep-Dive ↗</a>
+        <a href="https://github.com/nehadangwal/sentrynode-gateway/releases/tag/v1.5.0" target="_blank" class="link-btn">v1.5.0 Benchmarks ↗</a>
+        <a href="https://sentrynodegateway.com" target="_blank" class="link-btn">Product Site ↗</a>
       </div>
     </section>
 
-    <section class="bg-white rounded-3xl p-10 border border-slate-200 shadow-sm mb-12">
-        <div class="flex flex-wrap items-center gap-3 mb-6">
-            <span class="patent-badge text-white text-xs font-bold px-3 py-1 rounded-full uppercase">Founder & Architect</span>
-            <h2 class="text-3xl font-bold text-slate-900">SentryNode Gateway</h2>
-        </div>
-        <p class="text-lg text-slate-600 mb-8 leading-relaxed">
-            In 2026, the "AI Tax" is breaking engineering margins. I architected <strong>SentryNode</strong> to move enterprises from hardcoded Frontier models to <strong>Adaptive Inference</strong>. This governed gateway reduces inference costs by 77.6% while ensuring model provenance via cryptographic signing.
+    <!-- DESIGN PARTNERS -->
+    <section id="partners" class="partner-section">
+      <div>
+        <div class="partner-label">2 Slots · Q2 2026</div>
+        <h2 class="partner-heading">Design Partner Pilot</h2>
+        <p class="partner-sub">
+          I'm looking for engineering teams running agents in production who are hitting unexplained cost growth — and want to see what governed inference looks like on real traffic before committing to a full deployment.
         </p>
-
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-            <div class="bg-slate-50 p-6 rounded-xl border-l-4 border-cyan-500">
-                <p class="text-cyan-700 font-bold text-xs uppercase mb-2">Adaptive Routing</p>
-                <p class="text-sm text-slate-700">Real-time intent analysis routes routine tasks to SLMs, reserving Frontier models for reasoning.</p>
-            </div>
-            <div class="bg-slate-50 p-6 rounded-xl border-l-4 border-cyan-500">
-                <p class="text-cyan-700 font-bold text-xs uppercase mb-2">Sovereign Engine</p>
-                <p class="text-sm text-slate-700">HMAC-SHA256 response signing provides a legal audit trail for every word generated by an agent.</p>
-            </div>
-            <div class="bg-slate-50 p-6 rounded-xl border-l-4 border-cyan-500">
-                <p class="text-cyan-700 font-bold text-xs uppercase mb-2">The Blast Shield</p>
-                <p class="text-sm text-slate-700">Sandbox-hardened execution layers decouple untrusted agentic logic from core VPC infrastructure.</p>
-            </div>
-        </div>
-        <div class="flex flex-wrap gap-4">
-          <a href="https://github.com/nehadangwal/sentrynode-gateway" class="bg-slate-900 text-white px-6 py-3 rounded-xl font-bold text-sm hover:bg-slate-800 transition">View Repository ↗</a>
-          <a href="https://medium.com/@nehadangwal" class="bg-cyan-600 text-white px-6 py-3 rounded-xl font-bold text-sm hover:bg-cyan-500 transition">Read Technical Deep-Dive 📝</a>
-          <a href="https://github.com/nehadangwal/sentrynode-gateway/releases/tag/v1.5.0" class="border border-slate-200 px-6 py-3 rounded-xl font-bold text-sm hover:bg-slate-50 transition">v1.5.0 Benchmarks 📊</a>
-        </div>
-    </section>
-    <section class="mb-12 bg-cyan-950 rounded-3xl p-8 text-white shadow-2xl border border-cyan-400/30">
-        <div class="flex flex-col md:flex-row items-center gap-8">
-            <div class="flex-1">
-                <h2 class="text-2xl font-bold mb-4">Seeking Design Partners </h2>
-                <p class="text-slate-300 text-sm mb-6 leading-relaxed">
-                    I am looking for 2-3 engineering teams to stress-test SentryNode in production VPCs. Ideal partners are AI-native startups or mid-market firms hitting a "fiscal wall" with agentic OpEx.
-                </p>
-                <ul class="text-xs space-y-2 mb-6 text-cyan-200">
-                    <li class="flex items-center gap-2">✔ Dedicated implementation support — direct access to the founder during onboarding</li>
-                    <li class="flex items-center gap-2">✔ Influence on the enterprise security roadmap before public release</li>
-                    <li class="flex items-center gap-2">✔ Pilot pricing with first-mover commercial terms locked in</li>
-                </ul>
-                <a href="https://meetings-na2.hubspot.com/neha-dangwal" class="inline-block bg-cyan-500 hover:bg-cyan-400 text-white font-bold py-3 px-8 rounded-xl transition shadow-lg">
-                    🛡️ Book Your FREE 15-Min AI Diagnostic
-                </a>
-            </div>
-            <div class="hidden md:block w-px h-40 bg-white/10"></div>
-            <div class="flex-1 text-center md:text-left">
-                <p class="text-cyan-400 font-mono text-xs mb-2 uppercase tracking-widest">Pilot Focus Areas</p>
-                <div class="grid grid-cols-2 gap-4">
-                    <div class="p-3 bg-white/5 rounded-lg border border-white/10 text-xs">
-                        <p class="font-bold">FinTech</p>
-                        <p class="text-slate-400">Audit Trails & Signing</p>
-                    </div>
-                    <div class="p-3 bg-white/5 rounded-lg border border-white/10 text-xs">
-                        <p class="font-bold">HealthTech</p>
-                        <p class="text-slate-400">Sandbox Isolation</p>
-                    </div>
-                  <div class="p-3 bg-white/5 rounded-lg border border-white/10 text-xs">
-                        <p class="font-bold">Voice AI</p>
-                        <p class="text-slate-400">Voice STT / LLM / TTS 340ms / 1.2s / 1.3s</p>
-                    </div>
-                    <div class="p-3 bg-white/5 rounded-lg border border-white/10 text-xs">
-                        <p class="font-bold">SaaS Ops</p>
-                        <p class="text-slate-400">70%+ Cost Arbitrage</p>
-                    </div>
-                    <div class="p-3 bg-white/5 rounded-lg border border-white/10 text-xs">
-                        <p class="font-bold">Compliance</p>
-                        <p class="text-slate-400">Automated Guardrails</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="grid grid-cols-1 md:grid-cols-2 gap-12 mb-20">
-      <div>
-        <h2 class="text-2xl font-bold text-slate-800 mb-6 flex items-center gap-2">
-          <span class="p-2 bg-cyan-100 rounded-lg">🏗️</span> Enterprise Platform Impact
-        </h2>
-        <div class="space-y-6">
-          <div class="border-l-4 border-cyan-200 pl-4">
-            <h3 class="font-bold text-slate-900">Platform Strategy @ Cisco</h3>
-            <p class="text-slate-600 text-sm">Led "Submit to Commit" initiative, building automated quality gates that reduced bad commits and boosted code reliability for IOSXE platform.</p>
-          </div>
-          <div class="border-l-4 border-cyan-200 pl-4">
-            <h3 class="font-bold text-slate-900">Meraki Cloud Networking</h3>
-            <p class="text-slate-600 text-sm">Drove roadmap for cloud networking supporting 11.5M+ active devices globally, maintaining 99.9% availability SLAs.</p>
-          </div>
-        </div>
+        <ul class="partner-benefits">
+          <li>Direct access to the founder during the full 30-day onboarding — no support queue</li>
+          <li>Influence on the enterprise security and compliance roadmap before public release</li>
+          <li>Pilot pricing with first-mover commercial terms locked in at design partner rates</li>
+          <li>Production benchmark report you can take to your CFO — your actual numbers, not estimates</li>
+        </ul>
+        <a href="https://meetings-na2.hubspot.com/neha-dangwal" target="_blank" class="btn-partner">Book a Technical Conversation →</a>
       </div>
       <div>
-        <h2 class="text-2xl font-bold text-slate-800 mb-6 flex items-center gap-2">
-          <span class="p-2 bg-cyan-100 rounded-lg">📈</span> Operational Excellence
-        </h2>
-        <div class="space-y-6">
-          <div class="border-l-4 border-cyan-200 pl-4">
-            <h3 class="font-bold text-slate-900">$17M Business Value</h3>
-            <p class="text-slate-600 text-sm">Delivered cumulative ROI through modernization of CI/CD for AI and infrastructure security hardening at scale.</p>
+        <div class="partner-label">Focus Areas</div>
+        <div class="focus-grid">
+          <div class="focus-card">
+            <div class="focus-name">FinTech / Banking</div>
+            <div class="focus-desc">Cryptographic audit trail on every compliance workflow. 10K+ doc reviews/day.</div>
           </div>
-          <div class="border-l-4 border-cyan-200 pl-4">
-            <h3 class="font-bold text-slate-900">Architectural Governance</h3>
-            <p class="text-slate-600 text-sm">Established security standards for cloud-based Python platforms adopted by 80+ Cisco product lines.</p>
+          <div class="focus-card">
+            <div class="focus-name">Enterprise SaaS</div>
+            <div class="focus-desc">Per-tenant budget caps and chargeback reporting at scale.</div>
+          </div>
+          <div class="focus-card">
+            <div class="focus-name">Voice AI</div>
+            <div class="focus-desc">STT→LLM→TTS governance. ~2.8s E2E. PII scrubbing on every turn.</div>
+          </div>
+          <div class="focus-card">
+            <div class="focus-name">DevOps / Platform Eng</div>
+            <div class="focus-desc">Code agent circuit breakers. Loop interception before budget events fire.</div>
+          </div>
+          <div class="focus-card">
+            <div class="focus-name">HealthTech</div>
+            <div class="focus-desc">Sandbox-isolated execution. PII at the gateway layer, not the application.</div>
+          </div>
+          <div class="focus-card">
+            <div class="focus-name">Compliance / Legal</div>
+            <div class="focus-desc">Immutable audit log for every AI-generated output. EU AI Act ready.</div>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="mb-20">
-      <h2 class="text-2xl font-bold text-slate-800 mb-10">Systems & Security Moats</h2>
-      
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <a href="https://github.com/nehadangwal/TrainOps_Observatory" class="block bg-white p-6 rounded-2xl border border-slate-200 hover:border-cyan-400 transition shadow-sm group">
-          <div class="flex justify-between items-start mb-4">
-            <h3 class="font-bold group-hover:text-cyan-700">TrainOps Observatory</h3>
-            <span class="text-[10px] font-bold text-slate-400 uppercase">ML Performance</span>
-          </div>
-          <p class="text-slate-600 text-xs mb-6 leading-relaxed">Identifying GPU/IO bottlenecks to save $15k/year per engineer in infrastructure waste.</p>
-          <div class="flex gap-2">
-            <span class="bg-slate-100 px-2 py-0.5 rounded text-[8px] font-bold text-slate-500 uppercase">TimescaleDB</span>
-            <span class="bg-slate-100 px-2 py-0.5 rounded text-[8px] font-bold text-slate-500 uppercase">Telemetry</span>
+    <!-- EXPERIENCE -->
+    <section id="experience" class="two-col">
+      <div class="card">
+        <h3 class="card-title">🏗️ Enterprise Platform Background</h3>
+        <div class="card-item">
+          <h4>Platform Strategy · Cisco (2021–2024)</h4>
+          <p>Led "Submit to Commit" initiative — automated quality gates across IOSXE platform. Drove Meraki cloud networking roadmap supporting 11.5M+ active devices globally at 99.9% availability.</p>
+        </div>
+        <div class="card-item">
+          <h4>Security Platform · Cisco</h4>
+          <p>Owned Python-based Secure Storage platform adopted across 80+ Cisco product lines. Established enterprise security standards for cloud infrastructure at scale.</p>
+        </div>
+        <div class="card-item">
+          <h4>Systems Engineering · Dell EMC (2016–2021)</h4>
+          <p>0→1 enterprise hardware platforms. Built Dell's first on-prem GPU cloud using Kubernetes + Docker. Thermal management, memory optimization, boot time reduction across the server portfolio.</p>
+        </div>
+      </div>
+      <div class="card">
+        <h3 class="card-title">📐 Engineering Impact</h3>
+        <div class="card-item">
+          <h4>$17M+ Cumulative Career Impact</h4>
+          <p>Delivered across Cisco and Dell through CI/CD modernization, infrastructure security hardening, hardware review cycle compression, and platform reliability improvements.</p>
+        </div>
+        <div class="card-item">
+          <h4>MS Computer Science · Binghamton University</h4>
+          <p>Graduate research in distributed systems and systems architecture. Foundation for the SentryNode routing and circuit breaker design.</p>
+        </div>
+        <div class="card-item">
+          <h4>9 Years Enterprise Infrastructure</h4>
+          <p>Bare-metal firmware at Dell through global cloud networking at Cisco. The inference governance problem was visible from both ends of the stack before it had a name.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section class="projects-section">
+      <div class="section-label">Supporting Work</div>
+      <div class="projects-grid">
+        <a href="https://github.com/nehadangwal/TrainOps_Observatory" target="_blank" class="project-card">
+          <div class="project-type">ML Observability</div>
+          <div class="project-name">TrainOps Observatory</div>
+          <p class="project-desc">GPU/IO bottleneck detection for ML training pipelines. Surfaces infrastructure waste — $15K/year per engineer in recovered compute.</p>
+          <div class="project-tags">
+            <span class="tag">TimescaleDB</span>
+            <span class="tag">Telemetry</span>
+            <span class="tag">Python</span>
           </div>
         </a>
-        <a href="https://github.com/nehadangwal/cybersecurity-log-analyzer" class="block bg-white p-6 rounded-2xl border border-slate-200 hover:border-cyan-400 transition shadow-sm group">
-            <div class="flex justify-between items-start mb-4">
-              <h3 class="font-bold group-hover:text-cyan-700">Threat Detection ML</h3>
-              <span class="text-[10px] font-bold text-slate-400 uppercase">Security</span>
-            </div>
-            <p class="text-slate-600 text-xs mb-6 leading-relaxed">Processing 10k+ entries/sec with Isolation Forests for zero-latency multivariate anomaly detection.</p>
-            <div class="flex gap-2">
-              <span class="bg-slate-100 px-2 py-0.5 rounded text-[8px] font-bold text-slate-500 uppercase">Scikit-Learn</span>
-              <span class="bg-slate-100 px-2 py-0.5 rounded text-[8px] font-bold text-slate-500 uppercase">FastAPI</span>
-            </div>
-          </a>
-          <a href="https://github.com/nehadangwal/GoldenGate_AI/releases/tag/v1.5.0" class="block bg-white p-6 rounded-2xl border border-slate-200 hover:border-cyan-400 transition shadow-sm group">
-            <div class="flex justify-between items-start mb-4">
-              <h3 class="font-bold group-hover:text-cyan-700">FinOps of Generative AI</h3>
-              <span class="text-[10px] font-bold text-slate-400 uppercase">White Paper</span>
-            </div>
-            <p class="text-slate-600 text-xs mb-6 leading-relaxed">Authored "The FinOps of Generative AI v1.5" — detailing technical sovereignty and cost-per-successful-task metrics for enterprise AI.</p>
-            <div class="flex gap-2">
-              <span class="bg-slate-100 px-2 py-0.5 rounded text-[8px] font-bold text-slate-500 uppercase">FinOps</span>
-              <span class="bg-slate-100 px-2 py-0.5 rounded text-[8px] font-bold text-slate-500 uppercase">LLM Governance</span>
-            </div>
-          </a>
+        <a href="https://github.com/nehadangwal/cybersecurity-log-analyzer" target="_blank" class="project-card">
+          <div class="project-type">Security</div>
+          <div class="project-name">Threat Detection ML</div>
+          <p class="project-desc">10K+ log entries/sec processed with Isolation Forests. Zero-latency multivariate anomaly detection replacing expensive API-based detection.</p>
+          <div class="project-tags">
+            <span class="tag">Scikit-Learn</span>
+            <span class="tag">FastAPI</span>
+            <span class="tag">ML</span>
+          </div>
+        </a>
+        <a href="https://github.com/nehadangwal/sentrynode-gateway/releases/tag/v1.5.0" target="_blank" class="project-card">
+          <div class="project-type">White Paper</div>
+          <div class="project-name">FinOps of Generative AI v1.5</div>
+          <p class="project-desc">Technical paper covering inference governance architecture, cost-per-successful-task metrics, and the "AI Tax" framework for enterprise AI deployments.</p>
+          <div class="project-tags">
+            <span class="tag">FinOps</span>
+            <span class="tag">LLM Governance</span>
+            <span class="tag">Architecture</span>
+          </div>
+        </a>
       </div>
     </section>
 
   </main>
 
-  <footer class="bg-white border-t border-slate-200 py-16">
-    <div class="max-w-5xl mx-auto px-6 text-center">
-      <p class="text-slate-400 text-sm italic mb-6">"Every AI request. Governed. Auditable. Accountable."</p>
-      <div class="flex justify-center gap-8 mb-8">
-        <a href="https://linkedin.com/in/nehadangwal" class="text-slate-600 hover:text-cyan-700 font-semibold">LinkedIn</a>
-        <a href="https://github.com/nehadangwal" class="text-slate-600 hover:text-cyan-700 font-semibold">GitHub</a>
-        <a href="https://nehadangwal.substack.com" class="text-slate-600 hover:text-cyan-700 font-semibold">Substack</a>
-        <a href="https://medium.com/@nehadangwal" class="text-slate-600 hover:text-cyan-700 font-semibold">Medium</a>
-        <a href="mailto:partners@sentrynodegateway.com" class="text-slate-600 hover:text-cyan-700 font-semibold">Contact</a>
-      </div>
-      <p class="text-slate-300 text-[10px]
+  <!-- FOOTER -->
+  <footer>
+    <p class="footer-quote">"Every AI request. Governed. Auditable. Accountable."</p>
+    <div class="footer-links">
+      <a href="https://sentrynodegateway.com" target="_blank">SentryNode Gateway</a>
+      <a href="https://linkedin.com/in/nehadangwal" target="_blank">LinkedIn</a>
+      <a href="https://github.com/nehadangwal" target="_blank">GitHub</a>
+      <a href="https://nehadangwal.substack.com" target="_blank">Substack</a>
+      <a href="https://medium.com/@nehadangwal" target="_blank">Medium</a>
+      <a href="mailto:partners@sentrynodegateway.com">Contact</a>
+    </div>
+    <p class="footer-legal">© 2026 Neha Dangwal · SentryNode Gateway · U.S. Patent Pending #63/982,542 · San Jose, CA</p>
+  </footer>
+
+</body>
+</html>
